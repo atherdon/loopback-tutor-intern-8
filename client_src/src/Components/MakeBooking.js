@@ -96,7 +96,7 @@ class MakeBooking extends Component{
 						<input type="text" name="endDate" ref="endDate" />
 						<br />
 						<label>Hotel</ label>
-						<select ref="selectedhotel" onChange={this.ontouch.bind(this)}>
+						<select ref="selectedhotel">
 							{singleHotel}
 						</select>
 						<br />
