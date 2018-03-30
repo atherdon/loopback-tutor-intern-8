@@ -28,7 +28,7 @@ class ViewBooking extends Component{
 	render() {
 		const eachBooking = this.state.bookings.map((booking,i) => {
 			return (
-				<li key={i}>username: {booking.username}
+				<li key={i}>email: {booking.email}
 					<ul>
 						<li>start date: {booking.startDate}</li>
 						<li>end date: {booking.endDate}</li>
