@@ -1,0 +1,11 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mongods": {
+    "url": "mongodb://nishith:nishith@ds127589.mlab.com:27589/mongods",
+    "name": "mongods",
+    "connector": "loopback-connector-mongodb"
+  }
+}

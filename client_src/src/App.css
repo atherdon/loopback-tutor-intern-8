@@ -1,0 +1,64 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  height: 50px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.bookingsDisplay ul{
+	display: inline-block;
+	padding: 1rem;
+	background-color: #c4c4c4;
+	border: 1px solid black;
+	list-style-type: none;
+}
+.bookingsDisplay ul li{
+	border:  1px solid black;
+	margin: 1rem;
+}
+
+.onebooking ul{
+	display: block;
+	padding: 0.5rem;
+	background-color: #c4c4c4;
+	border:none;
+	list-style-type: none;
+}
+.onebooking ul li{
+	border:none;
+}
+/*
+.bookingsDisplay li ul li{
+	border: none;
+	display: inline-block;
+}
+*/
+
+.nav ul li{
+	display: inline-block;
+	background-color: #d4d4d4;
+	text-decoration: none;
+}
+
+.nav ul li a{
+	text-decoration: none;
+	color: black;
+	padding: 0.5rem 2rem;
+	display: block;
+}
+
+.nav ul li:hover{
+	background-color: gray;
+}
