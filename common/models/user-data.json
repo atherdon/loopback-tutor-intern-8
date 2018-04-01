@@ -21,8 +21,34 @@
   },
   "validations": [],
   "relations": {
-
+    "bookings": {
+      "type": "hasMany",
+      "model": "reservation",
+      "foreignKey": "email",
+      "options": {
+        "nestRemoting": true
+      }
+    }
   },
-  "acls": [],
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }
