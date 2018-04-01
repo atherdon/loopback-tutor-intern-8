@@ -9,7 +9,6 @@ class Navbar extends Component{
 					<li><a href="/view">View Booking</a></li>
 					<li><a href="/edit">Edit Booking</a></li>
 					<li><a href="/add">Add Booking</a></li>
-					<li><a href="/adduser">Add User</a></li>
 					<li><a href="/users">View Users</a></li>
 				</ul>
 			</div>

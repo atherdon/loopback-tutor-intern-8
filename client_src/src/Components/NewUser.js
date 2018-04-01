@@ -8,9 +8,9 @@ class NewUser extends Component{
 		//Take the form data
 		e.preventDefault();
 		const newUser = {
-			firstName: this.refs.fname.value,
-			lastName: this.refs.lname.value,
-			email: this.refs.email.value
+			email: this.refs.email.value,
+			username: this.refs.username.value,
+			password: this.refs.password.value,
 		}
 		this.addUser(newUser);
 
@@ -20,7 +20,7 @@ class NewUser extends Component{
 	
 	 	let email = newUser.email;
 	 	let filter = "filter={\"where\":{\"email\":\""+email+"\"}}";
-		axios.get(`http://localhost:3000/api/userData?${filter}`)
+		axios.get(`http://localhost:3000/api/User?${filter}`)
 		.then(response => {
 			if(response.data.length === 0){
 				axios.request({
@@ -53,13 +53,15 @@ class NewUser extends Component{
 						<label>Email</ label>
 						<input type="text" name="email" ref="email" />
 						<br />
-						<label>First Name</ label>
-						<input type="text" name="fname" ref="fname" />
+						<label>Username</ label>
+						<input type="text" name="username" ref="username" />
 						<br />
-						<label>Last Name</ label>
-						<input type="text" name="lname" ref="lname" />
+						<label>Password</ label>
+						<input type="text" name="password" ref="password" />
 						<br />
-						<input type="submit" value="Add User" />
+						<label>Confirm Password</ label>
+						<input type="text" name="cpassword" ref="cpassword" />
+						<input type="submit" value="Save" />
 					</form>
 				</div>
 			</div>

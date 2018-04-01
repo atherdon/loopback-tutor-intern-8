@@ -36,7 +36,7 @@ class UsersInfo extends Component{
 
 		return (
 			<div>
-				<h1>View Booking</h1>
+				<h1>Existing Users</h1>
 				<div  className="usersDisplay">
 					<ul className="oneuser">
 						{eachUser}
