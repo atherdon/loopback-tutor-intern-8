@@ -1,6 +1,6 @@
 {
   "name": "userData",
-  "base": "PersistedModel",
+  "base": "User",
   "idInjection": true,
   "options": {
     "validateUpsert": true
@@ -24,7 +24,7 @@
     "bookings": {
       "type": "hasMany",
       "model": "reservation",
-      "foreignKey": "email",
+      "foreignKey": "id",
       "options": {
         "nestRemoting": true
       }
@@ -48,6 +48,12 @@
       "principalType": "ROLE",
       "principalId": "$unauthenticated",
       "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$unauthenticated",
+      "permission": "DENY"
     }
   ],
   "methods": {}

@@ -35,6 +35,8 @@ build/Release
 # Dependency directories
 node_modules/
 client_src/node_modules/
+client_src/src/Actions
+client_src/src/Reducers
 jspm_packages/
 reservations/
 

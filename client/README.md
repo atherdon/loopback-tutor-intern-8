@@ -12,7 +12,7 @@ in client src folder npm run build
 
 in middleware.json
 files: {
-	loopback#static: {
+	"loopback#static": {
 	"params": "$!../client"
 }
 }
