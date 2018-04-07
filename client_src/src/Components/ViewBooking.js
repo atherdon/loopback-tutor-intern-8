@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import '../App.css';
 
-//import { bindActionCreators } from 'redux';
-//import { connect } from 'react-redux';
-//import { getUser } from '../Actions/UserAction';
-import  { Redirect } from 'react-router-dom';
-
 class ViewBooking extends Component{
 	constructor() {
 		super();
@@ -21,8 +16,8 @@ class ViewBooking extends Component{
 
 
 	getBookings() {
-		let accessToken =  sessionStorage.getItem("accessToken");//this.props.dataaccess.id;
-		let userId = sessionStorage.getItem("userId");//this.props.dataaccess.userId;
+		let accessToken =  sessionStorage.getItem("accessToken");
+		let userId = sessionStorage.getItem("userId");
 		let email = sessionStorage.getItem("email");
 		console.log(email+"<--");
 		//axios.get(`http://localhost:3000/api/reservations?filter={"where":{"userId":"${userId}"}}&access_token=${accessToken}`)

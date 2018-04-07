@@ -24,7 +24,7 @@ class LogOutUser extends Component{
 		}).catch(err => console.log(err.response.data.error.message + "Error at log out user")); 
 		// this is the object to get the error msg
 	}
-/*action="/login"*/
+
 	render() {
 
 

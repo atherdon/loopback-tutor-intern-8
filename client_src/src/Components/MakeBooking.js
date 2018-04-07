@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import '../App.css';
-
-/*import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { getUser } from '../Actions/UserAction';*/
 import  { Redirect } from 'react-router-dom'
 
 class MakeBooking extends Component{
@@ -122,14 +118,3 @@ class MakeBooking extends Component{
 }
 
 export default MakeBooking;
-
-/*
-export default connect(mapStateToProps)(MakeBooking);
-
-function mapStateToProps(state) {
-	return {
-		userData: state.user,
-		isLoggedIn: state.authenticated
-	}
-}
-*/
