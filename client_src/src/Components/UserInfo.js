@@ -2,49 +2,163 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import '../App.css';
 
+/*import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { setUser } from '../Actions/UserAction';*/
+import  { Redirect } from 'react-router-dom';
+
 class UsersInfo extends Component{
-	constructor() {
+
+
+
+/*REMOVE IF SUCCESFUL
+*/	constructor() {
 		super();
 		this.state = {
-			users: []
+			userdata: {}
 		}
 	}
 
-	componentWillMount() {
-		this.getUsers();
+	componentWillMount(){
+		this.getUsersData();
 	}
 
-	getUsers() {
-		axios.get('http://localhost:3000/api/userData')
+	getUsersData() {
+		let accessToken = sessionStorage.getItem("accessToken");//this.props.dataaccess.id;
+		let userId = sessionStorage.getItem("userId");//this.props.dataaccess.userId;
+		axios.get(`http://localhost:3000/api/userData/${userId}?access_token=${accessToken}`)
 		.then(response => {
-			this.setState({users: response.data})
-			//console.log(response.data)
+		//	console.log(response.data)
+		//	this.props.setUser(response.data);
+		//	console.log(this.props.userData.firstName);
+			this.setState({userdata: response.data})
+			sessionStorage.setItem("email",response.data.email);
 		})
 		.catch(error => {
-			console.log("Error in getting users data")
+			console.log(error.response.data.error.message + "Error in getting user data")
 		});
 	}
 
 	render() {
-		const eachUser = this.state.users.map((user,i) => {
+		let check = JSON.parse(sessionStorage.getItem("isLoggedIn"));
+		if(check === true){
+
 			return (
-				<li key={i}>Name: {user.firstName} {user.lastName} Email: {user.email}
-					
-				</li>
-			)
+				<div>
+				<h1>Existing User data</h1>
+				Name: {this.state.userdata.firstName} {this.state.userdata.lastName}
+				<br />
+				Email: {this.state.userdata.email}
+				<br />
+				username: {this.state.userdata.username}
+				<br />
+				<button >Edit profile </ button>
+			</div>
+			);
+		}
+		else{
+			console.log("you need to login first");
+		//	console.log(sessionStorage.getItem("isLoggedIn"));
+			return <Redirect to="/" />
+		}
+	}
+}
+export default UsersInfo;
+
+	/*=========================================
+		componentWillMount() {
+		this.getUsersData();
+	}
+
+	getUsersData() {
+		let accessToken = sessionStorage.getItem("accessToken");
+		let userId = sessionStorage.getItem("userId");
+		axios.get(`http://localhost:3000/api/userData/${userId}?access_token=${accessToken}`)
+		.then(response => {
+			this.setState({userdata: response.data})
+			//console.log(response.data)
 		})
+		.catch(error => {
+			console.log(error.response.data.error.message + "Error in getting user data")
+		});
+	}
+				<div>
+
+					<h1>Existing User data</h1>
+					<label> Name: {this.props.userData.firstName} {this.props.userData.lastName}</label>
+					<br />
+					Email: {this.props.userData.email}
+					<br />
+					username: {this.props.userData.username}
+					<br />
+					<button >Edit profile </ button>
+				</div>
+
+
+	render() {
 
 		return (
 			<div>
-				<h1>Existing Users</h1>
-				<div  className="usersDisplay">
-					<ul className="oneuser">
-						{eachUser}
-					</ul>
-				</div>
+				<h1>Existing User data</h1>
+				Name: {this.state.userdata.firstName} {this.state.userdata.lastName}
+				<br />
+				Email: {this.state.userdata.email}
+				<br />
+				username: {this.state.userdata.username}
+				<br />
+				<button >Edit profile </ button>
 			</div>
 		);
 	}
+	=============================================*/
+	/*TRIAL FOR REDUX WORKING
+	render() {
+
+		return (
+			<div>
+				<h1>Existing User data</h1>
+				Name: {this.props.userData.firstName} {this.props.userData.lastName}
+				<br />
+				Email: {this.props.userData.email}
+				<br />
+				username: {this.props.userData.doing} {this.props.userData.age}
+				<br />
+				<button >Edit profile </ button>
+			</div>
+		);
+	}
+*/
+
+
+/*
+const mapStateToProps = (state) => {
+	return {
+		userData: state.user,
+		dataaccess: state.dataaccess
+	}
 }
 
-export default UsersInfo;
+const matchDispatchToProps = (dispatch) => {
+	return {
+		setUser: (data) => {
+			dispatch(setUser(data));
+		}
+	}
+}
+export default connect(mapStateToProps, matchDispatchToProps)(UsersInfo);
+
+function mapStateToProps(state) {
+	return {
+		userData: state.user,
+		isLoggedIn: state.authenticated,
+		dataaccess: state.dataaccess
+	}
+}
+
+function matchDispatchToProps(dispatch){
+	return bindActionCreators({setUser: setUser}, dispatch)
+	
+
+}
+*/
+//export default connect(mapStateToProps)(UserData);

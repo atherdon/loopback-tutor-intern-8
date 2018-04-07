@@ -4,6 +4,7 @@ import Navbar from './Components/Navbar'
 import './App.css';
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">

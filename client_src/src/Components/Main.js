@@ -6,6 +6,7 @@ import EditBooking from './EditBooking';
 import NewUser from './NewUser';
 import UserInfo from './UserInfo';
 import UserLogin from './UserLogin';
+import UserLogout from './UserLogout';
 
 class Main extends Component {
 	render() {
@@ -14,6 +15,7 @@ class Main extends Component {
 			<main>
 				<Switch>
 					<Route exact path="/" component={UserLogin} />
+					<Route exact path="/logout" component={UserLogout} />
 					<Route path="/add" component={MakeBooking} />
 					<Route path="/adduser" component={NewUser} />
 					<Route exact path="/view" component={ViewBooking} />
