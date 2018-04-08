@@ -22,11 +22,13 @@ class ViewBooking extends Component{
 
 	getBookings() {
 		let accessToken =  sessionStorage.getItem("accessToken");//this.props.dataaccess.id;
-		let userId = sessionStorage.getItem("userId");//this.props.dataaccess.userId;
-		let email = sessionStorage.getItem("email");
+		let userId      = sessionStorage.getItem("userId");//this.props.dataaccess.userId;
+		let email       = sessionStorage.getItem("email");
+		// let url = `http://localhost:3000/api/reservations?filter={"where":{"userId":"${userId}"}}&access_token=${accessToken}`;
+		let url = `http://localhost:3000/api/reservations?filter={"where":{"email":"${email}"}}&access_token=${accessToken}`;
 		console.log(email+"<--");
 		//axios.get(`http://localhost:3000/api/reservations?filter={"where":{"userId":"${userId}"}}&access_token=${accessToken}`)
-		axios.get(`http://localhost:3000/api/reservations?filter={"where":{"email":"${email}"}}&access_token=${accessToken}`)
+		axios.get(url)
 		.then(response => {
 			this.setState({bookings: response.data})
 			console.log(response.data)
