@@ -24,6 +24,14 @@
     "dataSource": "mongods",
     "public": false
   },
+  "userCredential": {
+    "dataSource": "mongods",
+    "public": false
+  },
+  "userIdentity": {
+    "dataSource": "mongods",
+    "public": false
+  },
   "RoleMapping": {
     "dataSource": "mongods",
     "public": false,

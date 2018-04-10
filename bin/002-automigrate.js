@@ -7,11 +7,11 @@ var database = app.datasources.mongods;
 
 var lbTables = [
  
-  'User',
+  
   'AccessToken',
   'ACL',
-  'userCredential',
-  'userIdentity', 
+  // 'userCredential',
+  // 'userIdentity', 
   'RoleMapping', 
   'Role',
 
