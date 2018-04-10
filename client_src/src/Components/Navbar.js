@@ -19,10 +19,7 @@ class Navbar extends Component{
 			}
 			else{
 				return (
-					<div className="nav">
-						<ul>
-							<li><a href="/">login</a></li>
-						</ul>
+					<div>
 					</div>
 				);
 			}

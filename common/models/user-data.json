@@ -24,7 +24,7 @@
     "bookings": {
       "type": "hasMany",
       "model": "reservation",
-      "foreignKey": "id",
+      "foreignKey": "userId",
       "options": {
         "nestRemoting": true
       }

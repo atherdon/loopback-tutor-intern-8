@@ -21,8 +21,8 @@ class ViewBooking extends Component{
 
 
 	getBookings() {
-		let accessToken =  sessionStorage.getItem("accessToken");//this.props.dataaccess.id;
-		let userId      = sessionStorage.getItem("userId");//this.props.dataaccess.userId;
+		let accessToken =  sessionStorage.getItem("accessToken");
+		let userId      = sessionStorage.getItem("userId");
 		let email       = sessionStorage.getItem("email");
 		// let url = `http://localhost:3000/api/reservations?filter={"where":{"userId":"${userId}"}}&access_token=${accessToken}`;
 		let url = `http://localhost:3000/api/reservations?filter={"where":{"email":"${email}"}}&access_token=${accessToken}`;
