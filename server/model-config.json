@@ -18,22 +18,22 @@
   },
   "AccessToken": {
     "dataSource": "mongods",
-    "public": false
+    "public": true
   },
   "ACL": {
     "dataSource": "mongods",
-    "public": false
+    "public": true
   },
   "RoleMapping": {
     "dataSource": "mongods",
-    "public": false,
+    "public": true,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
     "dataSource": "mongods",
-    "public": false
+    "public": true
   },
   "reservation": {
     "dataSource": "mongods",
