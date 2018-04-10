@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = function(app) {
+	
 	app.post('/login', function(req, res) {
 		User.login({
 			email: req.body.email,
