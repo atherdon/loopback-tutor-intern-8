@@ -61,6 +61,7 @@ class UsersInfo extends Component{
 	getUsersData() {
 		let accessToken = sessionStorage.getItem("accessToken");
 		let userId = sessionStorage.getItem("userId");
+		console.log(userId);
 		axios.get(`http://localhost:3000/api/userData/${userId}?access_token=${accessToken}`)
 		.then(response => {
 			this.setState({userdata: response.data})
