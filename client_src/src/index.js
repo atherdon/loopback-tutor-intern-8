@@ -6,8 +6,8 @@ import registerServiceWorker from './registerServiceWorker';
 import Raven from 'raven-js';
 import { sentry_url } from './ravenconfig';
 
+//Raven.config(sentry_url).install();
 
-Raven.config(sentry_url).install();
 
 ReactDOM.render(
 	<BrowserRouter>

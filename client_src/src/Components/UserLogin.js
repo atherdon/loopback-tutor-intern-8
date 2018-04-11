@@ -10,7 +10,8 @@ class LogInUser extends Component{
 	onSubmit(e) {
 
 		const user = {
-			email: this.refs.email.value,
+			username: this.refs.username.value,
+		//	email: this.refs.email.value,
 			password: this.refs.password.value
 			
 		}
@@ -26,11 +27,11 @@ class LogInUser extends Component{
 			url:'http://localhost:3000/api/userData/login',//url:'http://localhost:3000/api/Users/login',
 			data: user
 		}).then(response => {
-			console.log(response.data);	//returns the object containing access token
+			//console.log(response.data);	//returns the object containing access token
 			sessionStorage.setItem("accessToken",response.data.id);
 			sessionStorage.setItem("userId",response.data.userId);
 			sessionStorage.setItem("isLoggedIn",JSON.stringify(true));
-			console.log(sessionStorage.getItem("accessToken"));
+			console.log("Token:"+sessionStorage.getItem("accessToken"));
 			this.props.history.push('/users');
 		}).catch(err => {
 			if(err.response)
@@ -49,8 +50,8 @@ class LogInUser extends Component{
 					<div>
 						<form className="entryForm" method="post" onSubmit={this.onSubmit.bind(this)}>
 							<br />
-							<label>email</ label>
-							<input type="text" name="email" ref="email" />
+							<label>Username</ label>
+							<input type="text" name="username" ref="username" />
 							<br />
 							<label>Password</ label>
 							<input type="text" name="password" ref="password" />

@@ -9,7 +9,7 @@ class Navbar extends Component{
 				return (
 					<div className="nav">
 					<ul>
-					
+						<li><a href="/users">My Profile</a></li>
 						<li><a href="/view">View Booking</a></li>
 						<li><a href="/add">Add Booking</a></li>
 						<li><a href="/logout">logout</a></li>
@@ -19,10 +19,7 @@ class Navbar extends Component{
 			}
 			else{
 				return (
-					<div className="nav">
-						<ul>
-							<li><a href="/">login</a></li>
-						</ul>
+					<div>
 					</div>
 				);
 			}

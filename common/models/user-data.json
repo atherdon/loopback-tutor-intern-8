@@ -21,10 +21,15 @@
   },
   "validations": [],
   "relations": {
+    "accessTokens": {
+      "type": "hasMany",
+      "model": "AccessToken",
+      "foreignKey": "userId"
+    },
     "bookings": {
       "type": "hasMany",
       "model": "reservation",
-      "foreignKey": "id",
+      "foreignKey": "userId",
       "options": {
         "nestRemoting": true
       }
@@ -32,28 +37,10 @@
   },
   "acls": [
     {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "$unauthenticated",
-      "permission": "ALLOW"
-    },
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "$everyone",
-      "permission": "ALLOW"
-    },
-    {
       "accessType": "WRITE",
       "principalType": "ROLE",
-      "principalId": "$unauthenticated",
+      "principalId": "$owner",
       "permission": "ALLOW"
-    },
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "$unauthenticated",
-      "permission": "DENY"
     }
   ],
   "methods": {}

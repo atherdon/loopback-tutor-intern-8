@@ -8,7 +8,8 @@ class UsersInfo extends Component{
 	constructor() {
 		super();
 		this.state = {
-			userdata: {}
+			userdata: {},
+			editing: false
 		}
 	}
 
@@ -16,24 +17,61 @@ class UsersInfo extends Component{
 		this.getUsersData();
 	}
 
+	edit() {
+		this.setState({editing:true});
+	}
+
+	handleChangeFirstName(e) {
+		let userdata = Object.assign ( {}, this.state.userdata);
+		userdata.firstName = e.target.value;
+		this.setState( {userdata} );
+	}
+
+	handleChangeLastName(e) {
+		let userdata = Object.assign ( {}, this.state.userdata);
+		userdata.lastName = e.target.value;
+		this.setState( {userdata} );
+	}
+
+	handleChangeEmail(e) {
+		let userdata = Object.assign ( {}, this.state.userdata);
+		userdata.email = e.target.value;
+		this.setState( {userdata} );
+	}
+
+	save() {
+		let userId = sessionStorage.getItem("userId");
+		let accessToken = sessionStorage.getItem("accessToken");
+		let updateurl = `http://localhost:3000/api/userData/${userId}?access_token=${accessToken}`;
+		let user = {
+			firstName: this.refs.fname.value,
+			lastname: this.refs.lname.value,
+			email: this.refs.email.value
+		}
+		axios.request({
+			method: 'patch',
+			url: updateurl,//url called to update the data
+			data: user			
+		}).then(response => {
+			console.log("Success updating user data")
+		}).catch(err => console.log(err))
+		this.setState({editing:false});
+	}
+
 	getUsersData() {
-		let accessToken = sessionStorage.getItem("accessToken");//this.props.dataaccess.id;
-		let userId = sessionStorage.getItem("userId");//this.props.dataaccess.userId;
+		let accessToken = sessionStorage.getItem("accessToken");
+		let userId = sessionStorage.getItem("userId");
 		axios.get(`http://localhost:3000/api/userData/${userId}?access_token=${accessToken}`)
 		.then(response => {
-
 			this.setState({userdata: response.data})
 			sessionStorage.setItem("email",response.data.email);
 		})
 		.catch(error => {
-			console.log(error.response.data.error.message + "Error in getting user data")
+			console.log(error + "Error in getting user data")
 		});
 	}
-
-	render() {
-		let check = JSON.parse(sessionStorage.getItem("isLoggedIn"));
-		if(check === true){
-
+//===ADD EDIT PROFILE WORKING BUTTON
+	renderNormal() {
 			return (
 				<div>
 				<h1>Existing User data</h1>
@@ -43,9 +81,39 @@ class UsersInfo extends Component{
 				<br />
 				username: {this.state.userdata.username}
 				<br />
-				<button >Edit profile </ button>
+				<button onClick={this.edit.bind(this)}>Edit profile </ button>
 			</div>
 			);
+	}
+
+	renderEditMode() {
+		return (
+			<div>
+			<h1>Existing User data</h1>
+			<label>First Name: </label>
+			<input type="text" value={this.state.userdata.firstName} ref="fname" onChange={this.handleChangeFirstName.bind(this)} />
+			<br />
+			<label>Last Name: </label>
+			<input type="text" value={this.state.userdata.lastName} ref="lname" onChange={this.handleChangeLastName.bind(this)} />
+			<br />
+			<label>Email:</label> 
+			<input type="text" value={this.state.userdata.email} ref="email" onChange={this.handleChangeEmail.bind(this)} />
+			<br />
+			username: {this.state.userdata.username}
+			<br />
+			<button onClick={this.save.bind(this)}>Save Changes </ button>
+		</div>
+		);
+	}
+
+	render() {
+		let check = JSON.parse(sessionStorage.getItem("isLoggedIn"));
+		if(check === true){
+			if(this.state.editing){
+				return this.renderEditMode();
+			}
+			else
+				return this.renderNormal();
 		}
 		else{
 			console.log("you need to login first");
@@ -53,5 +121,6 @@ class UsersInfo extends Component{
 			return <Redirect to="/" />
 		}
 	}
+
 }
 export default UsersInfo;

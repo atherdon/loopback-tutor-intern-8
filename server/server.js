@@ -3,39 +3,11 @@
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 
-
 var app = module.exports = loopback();
 
 //big changes now
-/*
-var bodyParser = require('body-parser');
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }))
 
-var cookieParser = require('cookie-parser');
 
-var passport = require('passport');
-
-var session = require('express-session');
-app.use(session({
-  secret: 'awesome',
-  resave: true,
-  saveUninitialized: true,
-  cookie: { maxAge: 1 * 20 * 60 * 1000 } /*hours minutes seconds milli*/
-/*}));
-
-app.use(function(req, res, next){
-  res.locals.session = req.session;
-  next();
-});
-app.use(cookieParser());
-app.use(passport.session());
-app.get('*', function(req, res, next) {
-  res.locals.user = req.user || null;
-//  res.locals.seller = req.seller || null; //not so sure about this implementation *passport only sets req.user
-  next();
-});*/
 //^--changes
 
 app.start = function() {
@@ -50,12 +22,10 @@ app.start = function() {
     }
   });
 };
-
 // Bootstrap the application, configure models, datasources and middleware.
-// Sub-apps like REST API are mounted via boot scripts.
+// Sub-apps like REST API are mounted via boot scripts
 boot(app, __dirname, function(err) {
   if (err) throw err;
-
   // start the server if `$ node server.js`
   if (require.main === module)
     app.start();
