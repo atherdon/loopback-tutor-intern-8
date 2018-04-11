@@ -7,5 +7,24 @@
     "url": "mongodb://nishith:nishith@ds127589.mlab.com:27589/mongods",
     "name": "mongods",
     "connector": "loopback-connector-mongodb"
+  },
+    "emailDs": {
+    "name": "emailDs",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "smtp.gmail.com",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "arthur.tkachenko.netweight@gmail.com",
+          "pass": "biBcf1K8r4Yn"
+        }
+      }
+    ]
   }
 }

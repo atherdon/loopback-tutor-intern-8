@@ -25,7 +25,7 @@ class NewUser extends Component{
 	}
 
 	addUser(newUser) {
-	
+	//If required transfer this part to backend for emial verification
 /*	 	let email = newUser.email;
 	 	let uname = newUser.username;
 //	 	let filter = "filter={\"where\":{\"email\":\""+email+"\"}}";
@@ -34,13 +34,15 @@ class NewUser extends Component{
 		axios.get(`http://localhost:3000/api/userData?${filter}`)
 		.then(response => {
 			if(response.data.length === 0){
-*/				axios.request({
+==========CALL TO ADD USER DATA IN DATABASE*/
+				axios.request({
 				method: 'post',
 				url:'http://localhost:3000/api/userData',//url:'http://localhost:3000/api/Users',
 				data: newUser
 				}).then(respons => {
 					console.log(respons.data);//can get userId from this response object
 //if it doesn't exist then get the access token from respons.data and insert in the userData model 
+/*================LOGIN USER AUTOMATICALLY AFTER  SIGNUP==========
 					axios.request({
 						method: 'post',
 						url:'http://localhost:3000/api/userData/login',//url:'http://localhost:3000/api/Users/login',
@@ -49,10 +51,10 @@ class NewUser extends Component{
 						console.log(respon.data);	//returns the object containing access token
 						sessionStorage.setItem("accessToken",respon.data.id);
 						sessionStorage.setItem("userId",respon.data.userId);
-//						console.log(sessionStorage.getItem("accessToken"));
-						this.props.history.push('/');
+/						console.log(sessionStorage.getItem("accessToken"));
+					//	this.props.history.push('/');
 					}).catch(err => console.log(err + " Error at login verification"));
-
+*/
 					//this.props.history.push('/userInfo');
 				}).catch(err => console.log(err +" Error at add user"));
 /*			}
@@ -63,6 +65,8 @@ class NewUser extends Component{
 		.catch(error => {
 			console.log("Error in getting user checked")
 		});
+
+		onSubmit={this.onSubmit.bind(this)}
 */		
 		
 	}
@@ -74,15 +78,15 @@ class NewUser extends Component{
 			<div>
 				<h1>New User</h1>
 				<div>
-					<form className="entryForm" onSubmit={this.onSubmit.bind(this)}>
+					<form className="entryForm" method="post" action="http://localhost:3000/api/userData">
 						<label>Email</ label>
 						<input type="text" name="email" ref="email" />
 						<br />
 						<label>First Name</ label>
-						<input type="text" name="fname" ref="fname" />
+						<input type="text" name="firstName" ref="fname" />
 						<br />
 						<label>Last Name</ label>
-						<input type="text" name="lname" ref="lname" />
+						<input type="text" name="lastName" ref="lname" />
 						<br />
 						<label>UserName</ label>
 						<input type="text" name="username" ref="username" />

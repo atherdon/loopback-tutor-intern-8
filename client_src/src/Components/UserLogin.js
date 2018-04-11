@@ -32,7 +32,7 @@ class LogInUser extends Component{
 			sessionStorage.setItem("userId",response.data.userId);
 			sessionStorage.setItem("isLoggedIn",JSON.stringify(true));
 			console.log("Token:"+sessionStorage.getItem("accessToken"));
-			this.props.history.push('/users');
+//			this.props.history.push('/users');
 		}).catch(err => {
 			if(err.response)
 				console.log(err.response.data.error.message + "Error at login verification");

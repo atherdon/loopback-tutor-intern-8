@@ -5,9 +5,16 @@ var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
 
-//big changes now
+//big changes nowvar path = require('path');
+var path = require('path');
+var bodyParser = require('body-parser');
 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'))
 
+app.use(bodyParser.urlencoded({extended: true}));
+
+app.use(loopback.token());
 //^--changes
 
 app.start = function() {
