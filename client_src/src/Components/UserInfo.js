@@ -41,11 +41,15 @@ class UsersInfo extends Component{
 	save() {
 		let userId = sessionStorage.getItem("userId");
 		let accessToken = sessionStorage.getItem("accessToken");
-		let url = `http://localhost:3000/api/userData/update?filter={"where":{"userId":"${userId}"}}&access_token=${accessToken}`;
-		let user = Object.assign({}, this.state.userdata);
+		let updateurl = `http://localhost:3000/api/userData/${userId}?access_token=${accessToken}`;
+		let user = {
+			firstName: this.refs.fname.value,
+			lastname: this.refs.lname.value,
+			email: this.refs.email.value
+		}
 		axios.request({
-			method: 'post',
-			url:'http://localhost:3000/api/userData/login',//url:'http://localhost:3000/api/Users/login',
+			method: 'patch',
+			url: updateurl,//url called to update the data
 			data: user			
 		}).then(response => {
 			console.log("Success updating user data")
@@ -63,7 +67,7 @@ class UsersInfo extends Component{
 			sessionStorage.setItem("email",response.data.email);
 		})
 		.catch(error => {
-			console.log(error.response.data.error.message + "Error in getting user data")
+			console.log(error + "Error in getting user data")
 		});
 	}
 //===ADD EDIT PROFILE WORKING BUTTON

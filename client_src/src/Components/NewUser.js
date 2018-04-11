@@ -50,7 +50,7 @@ class NewUser extends Component{
 						sessionStorage.setItem("accessToken",respon.data.id);
 						sessionStorage.setItem("userId",respon.data.userId);
 //						console.log(sessionStorage.getItem("accessToken"));
-						this.props.history.push('/view');
+						this.props.history.push('/');
 					}).catch(err => console.log(err + " Error at login verification"));
 
 					//this.props.history.push('/userInfo');
