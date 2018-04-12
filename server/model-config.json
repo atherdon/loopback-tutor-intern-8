@@ -45,6 +45,12 @@
   },
   "userData": {
     "dataSource": "mongods",
-    "public": true
+    "public": true,
+    "options": {
+      "emailVerificationRequired": true
+    }
+  },
+  "Email": {
+    "dataSource": "emailds"
   }
 }

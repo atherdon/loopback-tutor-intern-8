@@ -56,7 +56,13 @@ class NewUser extends Component{
 					}).catch(err => console.log(err + " Error at login verification"));
 */
 					//this.props.history.push('/userInfo');
-				}).catch(err => console.log(err +" Error at add user"));
+				}).catch(err => {
+					if(err.response)
+						console.log(err.response.data.error.message + "Error at login verification");
+					else
+						console.log(err)
+
+				});
 /*			}
 			else{
 				console.log("user already exists");
@@ -65,8 +71,8 @@ class NewUser extends Component{
 		.catch(error => {
 			console.log("Error in getting user checked")
 		});
-
-		onSubmit={this.onSubmit.bind(this)}
+method="post" action="http://localhost:3000/api/userData"
+		
 */		
 		
 	}
@@ -78,7 +84,7 @@ class NewUser extends Component{
 			<div>
 				<h1>New User</h1>
 				<div>
-					<form className="entryForm" method="post" action="http://localhost:3000/api/userData">
+					<form className="entryForm" onSubmit={this.onSubmit.bind(this)}>
 						<label>Email</ label>
 						<input type="text" name="email" ref="email" />
 						<br />
