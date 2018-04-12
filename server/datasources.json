@@ -8,9 +8,8 @@
     "name": "mongods",
     "connector": "loopback-connector-mongodb"
   },
-    "emailDs": {
-    "name": "emailDs",
-    "connector": "mail",
+  "emailds": {
+    "name": "emailds",
     "transports": [
       {
         "type": "smtp",
@@ -25,6 +24,7 @@
           "pass": "biBcf1K8r4Yn"
         }
       }
-    ]
+    ],
+    "connector": "mail"
   }
 }
