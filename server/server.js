@@ -9,7 +9,7 @@ var app = module.exports = loopback();
 var path = require('path');
 var bodyParser = require('body-parser');
 
-app.set('view engine', 'ejs');
+app.set('view engine', 'jade');
 app.set('views', path.join(__dirname, 'views'))
 
 app.use(bodyParser.urlencoded({extended: true}));

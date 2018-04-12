@@ -1,9 +1,11 @@
 'use strict';
 
 var dsConfig = require('../datasources.json');
-module.exports = function(app) {
+	module.exports = function(app) {
 
-	var User = app.models.userData;
+	app.get('/verified', function(req, res) {
+    res.render('verified');
+  });
 
 
   
