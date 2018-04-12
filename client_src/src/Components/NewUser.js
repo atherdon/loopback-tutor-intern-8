@@ -34,7 +34,7 @@ class NewUser extends Component{
 		axios.get(`http://localhost:3000/api/userData?${filter}`)
 		.then(response => {
 			if(response.data.length === 0){
-==========CALL TO ADD USER DATA IN DATABASE*/
+//==========CALL TO ADD USER DATA IN DATABASE*/
 				axios.request({
 				method: 'post',
 				url:'http://localhost:3000/api/userData',//url:'http://localhost:3000/api/Users',
@@ -51,11 +51,11 @@ class NewUser extends Component{
 						console.log(respon.data);	//returns the object containing access token
 						sessionStorage.setItem("accessToken",respon.data.id);
 						sessionStorage.setItem("userId",respon.data.userId);
-/						console.log(sessionStorage.getItem("accessToken"));
-					//	this.props.history.push('/');
+//						console.log(sessionStorage.getItem("accessToken"));
+						this.props.history.push('/');
 					}).catch(err => console.log(err + " Error at login verification"));
 */
-					//this.props.history.push('/userInfo');
+					this.props.history.push('/');
 				}).catch(err => {
 					if(err.response)
 						console.log(err.response.data.error.message + "Error at login verification");

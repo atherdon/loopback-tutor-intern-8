@@ -9,15 +9,15 @@ var senderAddress = "arthur.tkachenko.netweight@gmail.com";
 module.exports = function(Userdata) {
   //send verification email after registration
   Userdata.afterRemote('create', function(context, user, next) {
-    console.log("this did execute");
+//    console.log("this did execute");
     var options = {
       type: 'email',
       to: user.email,
-      from: senderAddress,
+      from: "<no-reply@groceristar.com>",
       subject: 'Thanks for registering.',
       text: "please verify the link",
-      template: path.resolve(__dirname, '../../server/views/verify.ejs'),
-      redirect: '/verified',
+      template: path.resolve(__dirname, '../../server/views/verify.jade'),
+      redirect: '/',
       user: user
     };
 
