@@ -13,15 +13,12 @@
     "transports": [
       {
         "type": "smtp",
-        "host": "smtp.gmail.com",
-        "secure": true,
-        "port": 465,
-        "tls": {
-          "rejectUnauthorized": false
-        },
+        "host": "smtp.ethereal.email",
+        "port": 587,
+        "secureConnection": false,
         "auth": {
-          "user": "arthur.tkachenko.netweight@gmail.com",
-          "pass": "biBcf1K8r4Yn"
+          "user": "fla6ujzi2q3w4krq@ethereal.email",
+          "pass": "3PhVgqVEpu96mXbNTV"
         }
       }
     ],
