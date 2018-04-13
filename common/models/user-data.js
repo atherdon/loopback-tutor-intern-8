@@ -50,11 +50,11 @@ module.exports = function(Userdata) {
 
   //send password reset link when requested
   Userdata.on('resetPasswordRequest', function(info) {
-    var url = 'http://' + config.host + ':' + config.port + '/reset-password';
+    var url = 'http://' + config.host + ':' + config.port + '/api/userData/reset-password';
     var html = 'Click <a href="' + url + '?access_token=' +
         info.accessToken.id + '">here</a> to reset your password';
-
-    User.app.models.Email.send({
+        console.log("yes reset reached here with this access token"+ info.accessToken.id);
+    Userdata.app.models.Email.send({
       to: info.email,
       from: senderAddress,
       subject: 'Password reset',
@@ -86,7 +86,7 @@ module.exports = function(Userdata) {
   });
 };
 
-/*
+/*Settings for gmail
   "emailds": {
     "name": "emailds",
     "transports": [

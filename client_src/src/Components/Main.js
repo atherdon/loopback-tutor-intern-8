@@ -7,6 +7,7 @@ import NewUser from './NewUser';
 import UserInfo from './UserInfo';
 import UserLogin from './UserLogin';
 import UserLogout from './UserLogout';
+import ResetPassword from './ResetPassword';
 
 class Main extends Component {
 	render() {
@@ -21,6 +22,7 @@ class Main extends Component {
 					<Route exact path="/view" component={ViewBooking} />
 					<Route exact path="/edit" component={EditBooking} />
 					<Route exact path="/users" component={UserInfo} />
+					<Route exact path="/reset" component={ResetPassword} />
 				</Switch>
 				</main>
 			</div>
