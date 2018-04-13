@@ -58,6 +58,8 @@ class LogInUser extends Component{
 							<br />
 							<input type="submit" value="Login" />
 							<a href="/adduser" >New User?</a>
+							<br />
+							<a href="/reset" >Forgot password? </a>
 						</form>
 					</div>
 				</div>

@@ -40,7 +40,7 @@ class NewUser extends Component{
 				url:'http://localhost:3000/api/userData',//url:'http://localhost:3000/api/Users',
 				data: newUser
 				}).then(respons => {
-					console.log(respons.data);//can get userId from this response object
+					console.log("This is response-->>"+respons.data);//can get userId from this response object
 //if it doesn't exist then get the access token from respons.data and insert in the userData model 
 /*================LOGIN USER AUTOMATICALLY AFTER  SIGNUP==========
 					axios.request({
