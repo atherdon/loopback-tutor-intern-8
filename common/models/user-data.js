@@ -16,7 +16,7 @@ module.exports = function(Userdata) {
       from: "<no-reply@groceristar.com>",
       subject: 'Thanks for registering.',
       text: "please verify the link",
-      template: path.resolve(__dirname, '../../server/views/verify.jade'),
+      template: path.resolve(__dirname, '../../server/views/verify.ejs'),
       redirect: '/',
       user: user
     };
@@ -85,3 +85,26 @@ module.exports = function(Userdata) {
     });
   });
 };
+
+/*
+  "emailds": {
+    "name": "emailds",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "smtp.gmail.com",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "",
+          "pass": ""
+        }
+      }
+    ],
+    "connector": "mail"
+  }
+
+*/
