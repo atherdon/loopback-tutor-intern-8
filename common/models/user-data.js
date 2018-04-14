@@ -50,7 +50,8 @@ module.exports = function(Userdata) {
 
   //send password reset link when requested
   Userdata.on('resetPasswordRequest', function(info) {
-    var url = 'http://' + config.host + ':' + config.port + '/api/userData/reset-password';
+    var url = 'http://' + config.host + ':' + config.port + '/reset-password';
+    //var url = 'http://' + config.host + ':' + config.port + '/api/userData/reset-password';
     var html = 'Click <a href="' + url + '?access_token=' +
         info.accessToken.id + '">here</a> to reset your password';
         console.log("yes reset reached here with this access token"+ info.accessToken.id);
