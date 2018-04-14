@@ -38,7 +38,13 @@
       "principalType": "ROLE",
       "principalId": "$owner",
       "permission": "ALLOW"
-    }
+    },
+    {
+    "accessType": "EXECUTE",
+    "principalType": "ROLE",
+    "principalId": "$authenticated",
+    "permission": "ALLOW"
+}
   ],
   "methods": {}
 }

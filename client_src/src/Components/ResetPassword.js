@@ -23,13 +23,15 @@ class ResetPassword extends Component{
 		});
 
 	}
-
+//onClick={this.reset.bind(this)}
 	render() {
 		return (
 			<div>
 				<h4> Please enter your registered email</h4>
-				<input type="email" name="email" ref="email" />
-				<button onClick={this.reset.bind(this)}> Reset Password </button>
+				<form method="post" action="http://localhost:3000/request-password-reset" >
+					<input type="email" name="email" ref="email" id="email" />
+					<input type="submit" value="Reset Password" />
+				</form>
 			</div>
 		);
 	}
