@@ -25,15 +25,24 @@ class ResetPassword extends Component{
 	}
 //onClick={this.reset.bind(this)}
 	render() {
-		return (
-			<div>
-				<h4> Please enter your registered email</h4>
-				<form method="post" action="http://localhost:3000/request-password-reset" >
-					<input type="email" name="email" ref="email" id="email" />
-					<input type="submit" value="Reset Password" />
-				</form>
-			</div>
-		);
+		let check = JSON.parse(sessionStorage.getItem("isLoggedIn"));
+		if(check === true){
+
+			return (
+				<div>
+					<h4> Please enter your registered email</h4>
+					<form method="post" action="http://localhost:3000/request-password-reset" >
+						<input type="email" name="email" ref="email" id="email" />
+						<input type="submit" value="Reset Password" />
+					</form>
+				</div>
+			);
+		}
+		else{
+			console.log("you need to login first");
+			return <Redirect to="/" />
+		}
+
 	}
 
 }

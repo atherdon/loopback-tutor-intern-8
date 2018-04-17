@@ -4,10 +4,11 @@ var dsConfig = require('../datasources.json');
 
 module.exports = function(app) {
 var User = app.models.userData;
+/*If works shift to react
 	app.get('/verified', function(req, res) {
     	res.render('verified');
 	});
-
+*/
   //send an email with instructions to reset an existing user's password
   app.post('/request-password-reset', function(req, res, next) {
     User.resetPassword({

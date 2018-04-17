@@ -28,11 +28,12 @@ class LogInUser extends Component{
 			data: user
 		}).then(response => {
 			//console.log(response.data);	//returns the object containing access token
+		//	console.log(user);
 			sessionStorage.setItem("accessToken",response.data.id);
 			sessionStorage.setItem("userId",response.data.userId);
 			sessionStorage.setItem("isLoggedIn",JSON.stringify(true));
 			console.log("Token:"+sessionStorage.getItem("accessToken"));
-//			this.props.history.push('/users');
+			this.props.history.push('/users');
 		}).catch(err => {
 			if(err.response)
 				console.log(err.response.data.error.message + "Error at login verification");
@@ -54,7 +55,7 @@ class LogInUser extends Component{
 							<input type="text" name="username" ref="username" />
 							<br />
 							<label>Password</ label>
-							<input type="text" name="password" ref="password" />
+							<input type="password" name="password" ref="password" />
 							<br />
 							<input type="submit" value="Login" />
 							<a href="/adduser" >New User?</a>

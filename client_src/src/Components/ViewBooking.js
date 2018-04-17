@@ -24,8 +24,8 @@ class ViewBooking extends Component{
 		let accessToken =  sessionStorage.getItem("accessToken");
 		let userId      = sessionStorage.getItem("userId");
 		let email       = sessionStorage.getItem("email");
-		// let url = `http://localhost:3000/api/reservations?filter={"where":{"userId":"${userId}"}}&access_token=${accessToken}`;
-		let url = `http://localhost:3000/api/reservations?filter={"where":{"email":"${email}"}}&access_token=${accessToken}`;
+		let url = `http://localhost:3000/api/reservations?filter={"where":{"or":[{"userId":"${userId}"},{"email":"${email}"}]}}&access_token=${accessToken}`;
+		//let url = `http://localhost:3000/api/reservations?filter={"where":{"email":"${email}"}}&access_token=${accessToken}`;
 		console.log(email+"<--");
 		//axios.get(`http://localhost:3000/api/reservations?filter={"where":{"userId":"${userId}"}}&access_token=${accessToken}`)
 		axios.get(url)
