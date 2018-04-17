@@ -44,15 +44,16 @@ class UsersInfo extends Component{
 		let accessToken = sessionStorage.getItem("accessToken");
 		let updateurl = `http://localhost:3000/api/userData/${userId}?access_token=${accessToken}`;
 		let user = {
-			firstName: this.refs.fname.value,
-			lastname: this.refs.lname.value,
-			email: this.refs.email.value
+			"firstName": this.refs.fname.value,
+			"lastName": this.refs.lname.value
+		//	email: this.refs.email.value		//solve the issue of email verification after changing
 		}
 		axios.request({
 			method: 'patch',
 			url: updateurl,//url called to update the data
 			data: user			
 		}).then(response => {
+			console.log(user)
 			console.log("Success updating user data")
 		}).catch(err => console.log(err))
 		this.setState({editing:false});

@@ -55,7 +55,7 @@ class NewUser extends Component{
 						this.props.history.push('/');
 					}).catch(err => console.log(err + " Error at login verification"));
 */
-					this.props.history.push('/');
+					this.props.history.push('/verify');
 				}).catch(err => {
 					if(err.response)
 						console.log(err.response.data.error.message + "Error at login verification");
@@ -98,10 +98,10 @@ method="post" action="http://localhost:3000/api/userData"
 						<input type="text" name="username" ref="username" />
 						<br />
 						<label>Password</ label>
-						<input type="text" name="password" ref="password" />
+						<input type="password" name="password" ref="password" />
 						<br />
 						<label>Confirm Password</ label>
-						<input type="text" name="cpassword" id="cpassword" ref="cpassword" />
+						<input type="password" name="cpassword" id="cpassword" ref="cpassword" />
 						<input type="submit" value="Save" />
 					</form>
 				</div>

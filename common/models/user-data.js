@@ -4,12 +4,15 @@
 var config = require('../../server/config.json');
 var path = require('path');
 var senderAddress = "arthur.tkachenko.netweight@gmail.com";
+
+var host = "127.0.0.1" || config.host;
+var port = "3001" || config.port;//adjust in final build
 //var senderEmailPassword = "biBcf1K8r4Yn";
 
 module.exports = function(Userdata) {
   //send verification email after registration
   Userdata.afterRemote('create', function(context, user, next) {
-//    console.log("this did execute");
+    //console.log("this is context" + context);
     var options = {
       type: 'email',
       to: user.email,
@@ -17,7 +20,7 @@ module.exports = function(Userdata) {
       subject: 'Thanks for registering.',
       text: "please verify the link",
       template: path.resolve(__dirname, '../../server/views/verify.ejs'),
-      redirect: '/',
+      redirect: /*'http://' + host + ':' + port + */'/verified',
       user: user
     };
 
@@ -26,6 +29,7 @@ module.exports = function(Userdata) {
         Userdata.deleteById(user.id);
         return next(err);
       }
+      //adjust this in react
       context.res.render('response', {
         title: 'Signed up successfully',
         content: 'Please check your email and click on the verification link ' +
