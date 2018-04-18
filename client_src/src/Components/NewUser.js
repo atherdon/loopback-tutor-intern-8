@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import '../App.css';
+//import '../App.css';
 
 class NewUser extends Component{
 
@@ -58,7 +58,7 @@ class NewUser extends Component{
 					this.props.history.push('/verify');
 				}).catch(err => {
 					if(err.response)
-						console.log(err.response.data.error.message + "Error at login verification");
+						console.log(err.response.data.error.message + "Error at signup");
 					else
 						console.log(err)
 

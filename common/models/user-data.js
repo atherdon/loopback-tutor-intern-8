@@ -12,7 +12,6 @@ var port = "3001" || config.port;//adjust in final build
 module.exports = function(Userdata) {
   //send verification email after registration
   Userdata.afterRemote('create', function(context, user, next) {
-    //console.log("this is context" + context);
     var options = {
       type: 'email',
       to: user.email,
@@ -20,7 +19,7 @@ module.exports = function(Userdata) {
       subject: 'Thanks for registering.',
       text: "please verify the link",
       template: path.resolve(__dirname, '../../server/views/verify.ejs'),
-      redirect: /*'http://' + host + ':' + port + */'/verified',
+      redirect: 'http://' + host + ':' + port + '/verified',//Take to the successfully verified page remove front part for final build
       user: user
     };
 

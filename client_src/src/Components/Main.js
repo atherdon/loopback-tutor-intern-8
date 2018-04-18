@@ -12,6 +12,7 @@ import ResetPasswordResponse from './ResetPasswordResponse';
 import Verified from './Verified';
 import Verify from './Verify';
 
+
 class Main extends Component {
 	render() {
 		return (

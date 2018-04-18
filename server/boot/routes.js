@@ -1,6 +1,7 @@
 'use strict';
 
 var dsConfig = require('../datasources.json');
+var urlTest = "http://127.0.0.1:3001";
 
 module.exports = function(app) {
 var User = app.models.userData;
@@ -15,13 +16,13 @@ var User = app.models.userData;
       email: req.body.email
     }, function(err) {
       if (err) return res.status(401).send(err);
-
-      res.render('response', {
+        res.redirect('/response');//check in final build
+/*      res.render('response', {
         title: 'Password reset requested',
         content: 'Check your email for further instructions',
-        redirectTo: '/',
+        redirectTo: urlTest + '/',
         redirectToLinkText: 'Log in'
-      });
+      });*/
     });
   });
 

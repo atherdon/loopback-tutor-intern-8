@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import '../App.css';
+import  { Redirect } from 'react-router-dom';
+//import '../App.css';
 
 //import { bindActionCreators } from 'redux';
 //import { connect } from 'react-redux';

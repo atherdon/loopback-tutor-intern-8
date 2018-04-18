@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import '../App.css';
+//import '../App.css';
 import  { Redirect } from 'react-router-dom'
 
 
@@ -62,6 +62,9 @@ class LogInUser extends Component{
 							<br />
 							<a href="/reset" >Forgot password? </a>
 						</form>
+						<br />
+						<br />
+						<a href="">Signin with google</a>
 					</div>
 				</div>
 			);
