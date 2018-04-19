@@ -8,12 +8,10 @@
   },
   "properties": {
     "firstName": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "lastName": {
-      "type": "string",
-      "required": true
+      "type": "string"
     }
   },
   "validations": [],
@@ -21,6 +19,16 @@
     "accessTokens": {
       "type": "hasMany",
       "model": "AccessToken",
+      "foreignKey": "userId"
+    },
+    "identities": {
+      "type": "hasMany",
+      "model": "userIdentity",
+      "foreignKey": "userId"
+    },
+    "credentials": {
+      "type": "hasMany",
+      "model": "userCredential",
       "foreignKey": "userId"
     },
     "bookings": {

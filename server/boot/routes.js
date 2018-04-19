@@ -10,6 +10,10 @@ var User = app.models.userData;
     	res.render('verified');
 	});
 */
+
+  app.get('/request-password-reset', function(req, res, next) {
+    res.render('resetpassword');
+  });
   //send an email with instructions to reset an existing user's password
   app.post('/request-password-reset', function(req, res, next) {
     User.resetPassword({

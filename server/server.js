@@ -33,7 +33,7 @@ try {
 // Setup the view engine (jade or ejs)
 var path = require('path');
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'jade');
 
 // boot scripts mount components like REST API
 boot(app, __dirname);
@@ -71,15 +71,16 @@ for (var s in config) {
 }
 //ensure that the user is logged in, if unauthenticated request then return user to login page
 var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
+/*==Implement if failure messages do not work in react==*/
 
 app.get('/', function(req, res, next) {
-  res.render('pages/index', {user:
-    req.user,
+  res.render('pages/login', {
+    user: req.user,
     url: req.url,
   });
 });
 
-app.get('/auth/account', ensureLoggedIn('/login'), function(req, res, next) {
+app.get('/auth/account', ensureLoggedIn('/'), function(req, res, next) {
   res.render('pages/loginProfiles', {
     user: req.user,
     url: req.url,
@@ -93,20 +94,13 @@ app.get('/local', function(req, res, next) {
   });
 });
 
-app.get('/ldap', function(req, res, next) {
-  res.render('pages/ldap', {
-    user: req.user,
-    url: req.url,
-  });
-});
-
 app.get('/signup', function(req, res, next) {
   res.render('pages/signup', {
     user: req.user,
     url: req.url,
   });
 });
-/*==Implement if failure messages do not work in react==
+
 app.post('/signup', function(req, res, next) {
   var User = app.models.user;
 
@@ -135,78 +129,16 @@ app.post('/signup', function(req, res, next) {
   });
 });
 
-app.get('/login', function(req, res, next) {
-  res.render('pages/login', {
-    user: req.user,
-    url: req.url,
-  });
-});
-*/
+
 
 app.get('/auth/logout', function(req, res, next) {
   req.logout();
   res.redirect('/');
 });
 
-/*
-var loopback = require('loopback');
-var boot = require('loopback-boot');
 
-var app = module.exports = loopback();
-
-//big changes nowvar path = require('path');
-var path = require('path');
-var bodyParser = require('body-parser');
-
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'))
-
-app.use(bodyParser.urlencoded({extended: true}));
-
-app.use(loopback.token());
-var loopbackPassport = require('loopback-component-passport');
-// Create an instance of PassportConfigurator with the app instance
-var PassportConfigurator = loopbackPassport.PassportConfigurator;
-var passportConfigurator = new PassportConfigurator(app);
-
-// Build the providers/passport config
-
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
-// Enable http session
-app.middleware('session:before', cookieParser(app.get('cookieSecret')));
-app.middleware('session', session({
-  secret: 'kitty',
-  saveUninitialized: true,
-  resave: true,
-}));
-
-// Load the provider configurations
-var config = {};
-try {
-  config = require('../providers.json');
-} catch(err) {
-  console.error('Please configure your passport strategy in `providers.json`.');
-  console.error('Copy `providers.json.template` to `providers.json` and replace the clientID/clientSecret values with your own.');
-  process.exit(1);
-}
-// Initialize passport
-passportConfigurator.init();
-
-// Set up related models
-passportConfigurator.setupModels({
-  userModel: app.models.user,
-  userIdentityModel: app.models.userIdentity,
-  userCredentialModel: app.models.userCredential
-});
-// Configure passport strategies for third party auth providers
-for(var s in config) {
-  var c = config[s];
-  c.session = c.session !== false;
-  passportConfigurator.configureProvider(s, c);
-}
 //^--changes
-*/
+
 
 app.start = function() {
   // start the web server

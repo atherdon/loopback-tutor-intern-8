@@ -1,6 +1,6 @@
 {
   "name": "userIdentity",
-  "base": "PersistedModel",
+  "base": "UserIdentity",
   "idInjection": true,
   "options": {
     "validateUpsert": true
@@ -43,7 +43,8 @@
   "relations": {
     "user": {
       "type": "belongsTo",
-      "model": "user"
+      "model": "user",
+      "foreignKey": "userId"
     }
   },
   "acls": [],

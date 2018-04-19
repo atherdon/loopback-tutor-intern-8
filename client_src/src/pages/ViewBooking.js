@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import  { Redirect } from 'react-router-dom';
-//import '../App.css';
-
-//import { bindActionCreators } from 'redux';
-//import { connect } from 'react-redux';
-//import { getUser } from '../Actions/UserAction';
-import  { Redirect } from 'react-router-dom';
 
 class ViewBooking extends Component{
 	constructor() {

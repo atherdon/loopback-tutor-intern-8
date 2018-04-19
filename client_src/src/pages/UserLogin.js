@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-//import '../App.css';
 import  { Redirect } from 'react-router-dom'
 
 
@@ -64,7 +63,7 @@ class LogInUser extends Component{
 						</form>
 						<br />
 						<br />
-						<a href="">Signin with google</a>
+						<a href="http://localhost:3000/auth/google">Signin with google</a>
 					</div>
 				</div>
 			);
