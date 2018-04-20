@@ -40,6 +40,11 @@ class LogInUser extends Component{
 				console.log(err)
 		});
 	}
+	getGoogleLogin() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.open('GET','http://localhost:3000/auth/google', true)
+		xhttp.send();
+	}
 
 	render() {
 		let check = false;
@@ -64,6 +69,7 @@ class LogInUser extends Component{
 						<br />
 						<br />
 						<a href="http://localhost:3000/auth/google">Signin with google</a>
+						
 					</div>
 				</div>
 			);
@@ -74,5 +80,6 @@ class LogInUser extends Component{
 		}
 	}
 }
-
+//<button onClick={this.getGoogleLogin.bind(this)}>Login with google plus</button>
+//
 export default LogInUser;

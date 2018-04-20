@@ -71,7 +71,15 @@ for (var s in config) {
 }
 //ensure that the user is logged in, if unauthenticated request then return user to login page
 var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
+
+//check if user is logged in or not
+app.get('*', function(req, res, next) {
+  res.locals.user = req.user || null;
+  next();
+});
+
 /*==Implement if failure messages do not work in react==*/
+
 
 app.get('/', function(req, res, next) {
   res.render('pages/login', {

@@ -11,6 +11,8 @@ import ResetPassword from '../pages/ResetPassword';
 import ResetPasswordResponse from '../pages/ResetPasswordResponse';
 import Verified from '../pages/Verified';
 import Verify from '../pages/Verify';
+import p404 from '../pages/Page404';
+import acc from '../pages/Authacc';
 
 
 class Main extends Component {
@@ -30,6 +32,8 @@ class Main extends Component {
 					<Route path="/response" component={ResetPasswordResponse} />
 					<Route path="/verified" component={Verified} />
 					<Route path="/verify" component={Verify} />
+					<Route path="/auth/account" component={acc} />
+					<Route exact path="*" component={p404} />
 				</Switch>
 				</main>
 			</div>
