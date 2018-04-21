@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import '../App.css';
 import  { Redirect } from 'react-router-dom';
 
 class ResetPassword extends Component{
@@ -25,9 +24,6 @@ class ResetPassword extends Component{
 	}
 //onClick={this.reset.bind(this)}
 	render() {
-		let check = JSON.parse(sessionStorage.getItem("isLoggedIn"));
-		if(check === true){
-
 			return (
 				<div>
 					<h4> Please enter your registered email</h4>
@@ -37,11 +33,6 @@ class ResetPassword extends Component{
 					</form>
 				</div>
 			);
-		}
-		else{
-			console.log("you need to login first");
-			return <Redirect to="/" />
-		}
 
 	}
 

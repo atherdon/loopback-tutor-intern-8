@@ -1,6 +1,7 @@
 {
   "_meta": {
     "sources": [
+      "./node_modules/loopback-component-passport/lib/models",
       "loopback/common/models",
       "loopback/server/models",
       "../common/models",
@@ -15,10 +16,6 @@
   },
   "User": {
     "dataSource": "mongods"
-  },
-  "AccessToken": {
-    "dataSource": "mongods",
-    "public": true
   },
   "ACL": {
     "dataSource": "mongods",
@@ -49,6 +46,18 @@
     "options": {
       "emailVerificationRequired": true
     }
+  },
+  "AccessToken": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "userCredential": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "userIdentity": {
+    "dataSource": "mongods",
+    "public": true
   },
   "Email": {
     "dataSource": "emailds"

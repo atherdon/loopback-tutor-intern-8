@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router';
-import MakeBooking from './MakeBooking';
-import ViewBooking from './ViewBooking';
-import EditBooking from './EditBooking';
-import NewUser from './NewUser';
-import UserInfo from './UserInfo';
-import UserLogin from './UserLogin';
-import UserLogout from './UserLogout';
-import ResetPassword from './ResetPassword';
-import ResetPasswordResponse from './ResetPasswordResponse';
-import Verified from './Verified';
-import Verify from './Verify';
+import MakeBooking from '../pages/MakeBooking';
+import ViewBooking from '../pages/ViewBooking';
+import EditBooking from '../pages/EditBooking';
+import NewUser from '../pages/NewUser';
+import UserInfo from '../pages/UserInfo';
+import UserLogin from '../pages/UserLogin';
+import UserLogout from '../pages/UserLogout';
+import ResetPassword from '../pages/ResetPassword';
+import ResetPasswordResponse from '../pages/ResetPasswordResponse';
+import Verified from '../pages/Verified';
+import Verify from '../pages/Verify';
+import p404 from '../pages/Page404';
+import acc from '../pages/Authacc';
+
 
 class Main extends Component {
 	render() {
@@ -29,6 +32,8 @@ class Main extends Component {
 					<Route path="/response" component={ResetPasswordResponse} />
 					<Route path="/verified" component={Verified} />
 					<Route path="/verify" component={Verify} />
+					<Route path="/auth/account" component={acc} />
+					<Route exact path="*" component={p404} />
 				</Switch>
 				</main>
 			</div>

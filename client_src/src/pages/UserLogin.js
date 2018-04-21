@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import '../App.css';
 import  { Redirect } from 'react-router-dom'
 
 
@@ -41,6 +40,11 @@ class LogInUser extends Component{
 				console.log(err)
 		});
 	}
+	getGoogleLogin() {
+		axios.get('http://localhost:3000/auth/google')
+		.then(response => console.log(response.data))
+		.catch(err => console.log(err))
+	}
 
 	render() {
 		let check = false;
@@ -62,6 +66,10 @@ class LogInUser extends Component{
 							<br />
 							<a href="/reset" >Forgot password? </a>
 						</form>
+						<br />
+						<br />
+						<button onClick={this.getGoogleLogin.bind(this)}>Login with google plus</button>
+						<a href="http://localhost:3000/auth/google">Signin with google</a>
 					</div>
 				</div>
 			);
@@ -72,5 +80,6 @@ class LogInUser extends Component{
 		}
 	}
 }
-
+//
+//
 export default LogInUser;
