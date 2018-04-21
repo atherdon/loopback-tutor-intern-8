@@ -41,9 +41,9 @@ class LogInUser extends Component{
 		});
 	}
 	getGoogleLogin() {
-		var xhttp = new XMLHttpRequest();
-		xhttp.open('GET','http://localhost:3000/auth/google', true)
-		xhttp.send();
+		axios.get('http://localhost:3000/auth/google')
+		.then(response => console.log(response.data))
+		.catch(err => console.log(err))
 	}
 
 	render() {
@@ -68,8 +68,8 @@ class LogInUser extends Component{
 						</form>
 						<br />
 						<br />
+						<button onClick={this.getGoogleLogin.bind(this)}>Login with google plus</button>
 						<a href="http://localhost:3000/auth/google">Signin with google</a>
-						
 					</div>
 				</div>
 			);
@@ -80,6 +80,6 @@ class LogInUser extends Component{
 		}
 	}
 }
-//<button onClick={this.getGoogleLogin.bind(this)}>Login with google plus</button>
+//
 //
 export default LogInUser;

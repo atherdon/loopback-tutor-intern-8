@@ -13,7 +13,7 @@ class Authacc extends Component{
 	componentDidMount(){
 		axios.get('http://localhost:3000/userstatus')
 		.then(response => {
-			console.log(response.data)
+			console.log("This came->" + response.data)
 			this.setState({userdata: response.data})
 		}).catch(err => console.log(err))
 	}
@@ -29,7 +29,6 @@ class Authacc extends Component{
 				<br />
 				username: {this.state.userdata.username}
 				<br />
-				<button onClick={this.edit.bind(this)}>Edit profile </ button>
 			</div>
 			);
 	}
