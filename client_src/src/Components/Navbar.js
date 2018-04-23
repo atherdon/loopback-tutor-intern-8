@@ -2,17 +2,28 @@ import React, { Component } from 'react';
 
 class Navbar extends Component{
 	render() {
-		return (
-			<div className="nav">
-				<ul>
-					<li><a href="/">Home</a></li>
-					<li><a href="/view">View Booking</a></li>
-					<li><a href="/edit">Edit Booking</a></li>
-					<li><a href="/add">Add Booking</a></li>
-					<li><a href="/users">View Users</a></li>
-				</ul>
-			</div>
-		);
+		let check = JSON.parse(sessionStorage.getItem("isLoggedIn"));
+		
+
+			if(check === true){
+				return (
+					<div className="nav">
+					<ul>
+						<li><a href="/users">My Profile</a></li>
+						<li><a href="/view">View Booking</a></li>
+						<li><a href="/add">Add Booking</a></li>
+						<li><a href="/logout">logout</a></li>
+					</ul>
+					</div>
+				);
+			}
+			else{
+				return (
+					<div>
+					</div>
+				);
+			}
+
 	}
 }
 

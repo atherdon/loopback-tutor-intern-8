@@ -7,12 +7,13 @@ just copy the files which react builds in this folder as they both work on separ
 in package.json of reactapp 
 
 build: react-scripts build && cp -r build/* ../client/
+build-windows: react-scripts build && xcopy -r build/* ../client/
 
 in client src folder npm run build
 
 in middleware.json
 files: {
-	loopback#static: {
+	"loopback#static": {
 	"params": "$!../client"
 }
 }

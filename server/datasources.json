@@ -1,11 +1,23 @@
 {
-  "db": {
-    "name": "db",
-    "connector": "memory"
-  },
   "mongods": {
     "url": "mongodb://nishith:nishith@ds127589.mlab.com:27589/mongods",
     "name": "mongods",
     "connector": "loopback-connector-mongodb"
+  },
+  "emailds": {
+    "name": "emailds",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "smtp.ethereal.email",
+        "port": 587,
+        "secureConnection": false,
+        "auth": {
+          "user": "fla6ujzi2q3w4krq@ethereal.email",
+          "pass": "3PhVgqVEpu96mXbNTV"
+        }
+      }
+    ],
+    "connector": "mail"
   }
 }

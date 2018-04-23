@@ -1,77 +1,45 @@
 'use strict';
 
-var express = require('express');
+var dsConfig = require('../datasources.json');
+var urlTest = "http://127.0.0.1:3001";
 
-var app = express();
-
-
-app.post('/', function(req, res){
-//	req.checkBody('Name', 'Name is required').notEmpty();
-  req.checkBody('username','User name is required').notEmpty();
-  req.checkBody('email','Email is required').notEmpty();
-  req.checkBody('email','Email is not valid').isEmail();
-  req.checkBody('password','Password is required').notEmpty();
-  req.checkBody('cpassword2','Confirm password is required').notEmpty();
-  req.checkBody('cpassword2','Passwords should match').equals(req.body.password);
-
-  var errors = req.validationErrors();
-  if(errors){
-  	res.render('user/signup', {errors: errors});
-  }
-  else{
-	var uname = req.body.username;
-	var email = req.body.email;
-	var password = req.body.password;
-	var cpassword = req.body.cpassword2;
-
-
-	var newUser = new User({
-		username: uname,
-		email: email,
-		password: password
+module.exports = function(app) {
+var User = app.models.userData;
+/*If works shift to react
+	app.get('/verified', function(req, res) {
+    	res.render('verified');
 	});
 
-	bcrypt.genSalt(10, function(err, salt){
-		bcrypt.hash(newUser.password, salt, function(err, hash){
-			if(err){
-				console.log("user error");
-			}
-			newUser.password = hash;
-			newUser.save(function(err){
-				if(err){
-					console.log("some error:u"+ uname + ", e:"+ email +", p:" + password);
-					return;
-				}
-				else{
-					console.log('You can now sign in');
-					res.render('/');
-				}
-			});
-		});
-	});
-	}
-});
 
-/*
-app.post('/login', function(req, res) {
-	User.login({
-		username: req.body.username,
-		password: req.body.password
-		}, 'user', function(err, token) {
-			if (err) {
-				res.render('response', { //render view named 'response.ejs'
-				title: 'Login failed',
-				content: err,
-				redirectTo: '/',
-				redirectToLinkText: 'Try again'
-			});
-			return;
-		}
-
-		res.redirectTo('/', { //login user and render 'home' view
-			accessToken: token.id
-		});
-		console.log("We reached here");
-	});
-});
+  app.get('/request-password-reset', function(req, res, next) {
+    res.render('resetpassword');
+  });
 */
+  //send an email with instructions to reset an existing user's password
+  app.post('/request-password-reset', function(req, res, next) {
+    User.resetPassword({
+      email: req.body.email
+    }, function(err) {
+      if (err) return res.status(401).send(err);
+        res.redirect('/response');//check in final build
+/*      res.render('response', {
+        title: 'Password reset requested',
+        content: 'Check your email for further instructions',
+        redirectTo: urlTest + '/',
+        redirectToLinkText: 'Log in'
+      });*/
+    });
+  });
+
+  //show password reset form
+  app.get('/reset-password', function(req, res, next) {
+    if (!req.accessToken) return res.sendStatus(401);
+    res.render('password-reset', {
+      redirectUrl: '/api/userData/reset-password?access_token='+
+        req.accessToken.id
+    });
+  });
+
+  
+  
+}

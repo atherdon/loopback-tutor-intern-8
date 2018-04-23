@@ -1,30 +1,40 @@
 {
   "name": "userData",
-  "base": "PersistedModel",
+  "base": "User",
   "idInjection": true,
   "options": {
-    "validateUpsert": true
+    "validateUpsert": true,
+    "emailVerificationRequired": true
   },
   "properties": {
     "firstName": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "lastName": {
-      "type": "string",
-      "required": true
-    },
-    "email": {
-      "type": "string",
-      "required": true
+      "type": "string"
     }
   },
   "validations": [],
   "relations": {
+    "accessTokens": {
+      "type": "hasMany",
+      "model": "AccessToken",
+      "foreignKey": "userId"
+    },
+    "identities": {
+      "type": "hasMany",
+      "model": "userIdentity",
+      "foreignKey": "userId"
+    },
+    "credentials": {
+      "type": "hasMany",
+      "model": "userCredential",
+      "foreignKey": "userId"
+    },
     "bookings": {
       "type": "hasMany",
       "model": "reservation",
-      "foreignKey": "email",
+      "foreignKey": "userId",
       "options": {
         "nestRemoting": true
       }
@@ -32,21 +42,15 @@
   },
   "acls": [
     {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "$unauthenticated",
-      "permission": "ALLOW"
-    },
-    {
-      "accessType": "*",
-      "principalType": "ROLE",
-      "principalId": "$everyone",
-      "permission": "ALLOW"
-    },
-    {
       "accessType": "WRITE",
       "principalType": "ROLE",
-      "principalId": "$unauthenticated",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
       "permission": "ALLOW"
     }
   ],

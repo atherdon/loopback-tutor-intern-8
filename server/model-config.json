@@ -1,6 +1,7 @@
 {
   "_meta": {
     "sources": [
+      "./node_modules/loopback-component-passport/lib/models",
       "loopback/common/models",
       "loopback/server/models",
       "../common/models",
@@ -16,24 +17,20 @@
   "User": {
     "dataSource": "mongods"
   },
-  "AccessToken": {
-    "dataSource": "db",
-    "public": false
-  },
   "ACL": {
-    "dataSource": "db",
-    "public": false
+    "dataSource": "mongods",
+    "public": true
   },
   "RoleMapping": {
-    "dataSource": "db",
-    "public": false,
+    "dataSource": "mongods",
+    "public": true,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "db",
-    "public": false
+    "dataSource": "mongods",
+    "public": true
   },
   "reservation": {
     "dataSource": "mongods",
@@ -45,6 +42,24 @@
   },
   "userData": {
     "dataSource": "mongods",
+    "public": true,
+    "options": {
+      "emailVerificationRequired": true
+    }
+  },
+  "AccessToken": {
+    "dataSource": "mongods",
     "public": true
+  },
+  "userCredential": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "userIdentity": {
+    "dataSource": "mongods",
+    "public": true
+  },
+  "Email": {
+    "dataSource": "emailds"
   }
 }
