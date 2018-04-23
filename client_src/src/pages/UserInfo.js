@@ -3,6 +3,7 @@ import axios from 'axios';
 import  { Redirect } from 'react-router-dom';
 
 class UsersInfo extends Component{
+
 	constructor() {
 		super();
 		this.state = {
@@ -63,7 +64,6 @@ class UsersInfo extends Component{
 		console.log(userId);
 		axios.get(`http://localhost:3000/api/userData/${userId}?access_token=${accessToken}`)
 		.then(response => {
-		//	console.log(response.data)
 			this.setState({userdata: response.data})
 			sessionStorage.setItem("email",response.data.email);
 		})
@@ -123,30 +123,5 @@ class UsersInfo extends Component{
 		}
 	}
 
-
-//===ORIGINAL working
-/*	render() {
-		let check = JSON.parse(sessionStorage.getItem("isLoggedIn"));
-		if(check === true){
-
-			return (
-				<div>
-				<h1>Existing User data</h1>
-				Name: {this.state.userdata.firstName} {this.state.userdata.lastName}
-				<br />
-				Email: {this.state.userdata.email}
-				<br />
-				username: {this.state.userdata.username}
-				<br />
-				<button >Edit profile </ button>
-			</div>
-			);
-		}
-		else{
-			console.log("you need to login first");
-		//	console.log(sessionStorage.getItem("isLoggedIn"));
-			return <Redirect to="/" />
-		}
-	}*/
 }
 export default UsersInfo;
