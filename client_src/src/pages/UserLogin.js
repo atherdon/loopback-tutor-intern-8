@@ -41,9 +41,12 @@ class LogInUser extends Component{
 		});
 	}
 	getGoogleLogin() {
-		axios.get('http://localhost:3000/auth/google')
-		.then(response => console.log(response.data))
-		.catch(err => console.log(err))
+		// axios.get('http://localhost:3000/auth/google')
+		// .then(response => console.log(response.data))
+		// .catch(err => console.log(err))
+		var xhttp = new XMLHttpRequest();
+		xhttp.open('GET','http://localhost:3000/auth/google',true);
+		xhttp.send(null);
 	}
 
 	render() {

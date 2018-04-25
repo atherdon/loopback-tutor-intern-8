@@ -10,24 +10,24 @@ var User = app.models.userData;
     	res.render('verified');
 	});
 
-
+*/
   app.get('/request-password-reset', function(req, res, next) {
     res.render('resetpassword');
   });
-*/
+
   //send an email with instructions to reset an existing user's password
   app.post('/request-password-reset', function(req, res, next) {
     User.resetPassword({
       email: req.body.email
     }, function(err) {
       if (err) return res.status(401).send(err);
-        res.redirect('/response');//check in final build
-/*      res.render('response', {
+ //       res.redirect('/response');//check in final build
+      res.render('response', {
         title: 'Password reset requested',
         content: 'Check your email for further instructions',
         redirectTo: urlTest + '/',
         redirectToLinkText: 'Log in'
-      });*/
+      });
     });
   });
 

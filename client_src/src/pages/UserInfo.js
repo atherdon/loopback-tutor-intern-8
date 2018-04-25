@@ -12,7 +12,7 @@ class UsersInfo extends Component{
 		}
 	}
 
-	componentWillMount(){
+	componentDidMount(){
 		this.getUsersData();
 	}
 
@@ -118,7 +118,6 @@ class UsersInfo extends Component{
 		}
 		else{
 			console.log("you need to login first");
-		//	console.log(sessionStorage.getItem("isLoggedIn"));
 			return <Redirect to="/" />
 		}
 	}

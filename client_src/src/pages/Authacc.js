@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import  { Redirect } from 'react-router-dom';
 
 class Authacc extends Component{
 	constructor() {
@@ -13,8 +12,10 @@ class Authacc extends Component{
 	componentDidMount(){
 		axios.get('http://localhost:3000/userstatus')
 		.then(response => {
-			console.log("This came->" + response.data)
+			if(response !== null){
+			console.log("This came->" + JSON.stringify(response))
 			this.setState({userdata: response.data})
+			console.log("state"+this.state.userdata.email)}
 		}).catch(err => console.log(err))
 	}
 

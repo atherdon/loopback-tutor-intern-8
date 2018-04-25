@@ -38,7 +38,34 @@ module.exports = function(Userdata) {
       });
     });
   });
-  
+  //Insert one more method to verify email after user has updated the email
+  // Userdata.afterRemote('updateAttributes', function(context, user, next) {//unable to call this function/wrong method name
+  //   console.log("yessss")
+  //   var options = {
+  //     type: 'email',
+  //     to: user.email,
+  //     from: "<no-reply@groceristar.com>",
+  //     subject: 'Groceristar profile update.',
+  //     text: "please verify the link",
+  //     template: path.resolve(__dirname, '../../server/views/verify.ejs'),
+  //     redirect: 'http://' + host + ':' + port + '/verified',//Take to the successfully verified page remove front part for final build
+  //     user: user
+  //   };
+
+  //   user.verify(options, function(err, response) {
+  //     if (err) {
+  //       //Userdata.deleteById(user.id);
+  //       return next(err);
+  //     }
+  //     context.res.render('response', {
+  //       title: 'Updated successfully',
+  //       content: 'Please check your email and click on the verification link to verify that changes were made by you',
+  //       redirectTo: '/',
+  //       redirectToLinkText: 'Log in'
+  //     });
+  //   });
+  // });
+
   // Method to render
   Userdata.afterRemote('prototype.verify', function(context, user, next) {
     context.res.render('response', {
@@ -57,7 +84,7 @@ module.exports = function(Userdata) {
     //var url = 'http://' + config.host + ':' + config.port + '/api/userData/reset-password';
     var html = 'Click <a href="' + url + '?access_token=' +
         info.accessToken.id + '">here</a> to reset your password';
-        console.log("yes reset reached here with this access token"+ info.accessToken.id);
+  //      console.log("yes reset reached here with this access token"+ info.accessToken.id);
     Userdata.app.models.Email.send({
       to: info.email,
       from: senderAddress,
