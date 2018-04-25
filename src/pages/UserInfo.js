@@ -12,7 +12,7 @@ class UsersInfo extends Component{
 		}
 	}
 
-	componentWillMount(){
+	componentDidMount(){
 		this.getUsersData();
 	}
 

@@ -8,11 +8,11 @@ class ResetPassword extends Component{
 		console.log("entered email is: "+this.refs.email.value)
 		axios.request({
 			method: 'post',
-			url:'http://localhost:3000/api/userData/reset',//url:'http://localhost:3000/api/Users/login',
-			data: {email: this.refs.email.value }
+			url:'http://localhost:3000/api/userData/reset',//modify the reset method in userdata.js backend to send an email with
+			data: {email: this.refs.email.value }//          reset link or call a different method to handle this
 		}).then(response => {
-			console.log(response.data);
-			console.log("response received for email is: ")
+		//	console.log(response.data);
+		//	console.log("response received for email is: ")
 
 		}).catch(err => {
 			if(err.response)
@@ -22,7 +22,7 @@ class ResetPassword extends Component{
 		});
 
 	}
-//onClick={this.reset.bind(this)}
+//onSubmit={this.reset.bind(this)} use this to call reset or send a direct call to backend
 	render() {
 			return (
 				<div>

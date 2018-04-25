@@ -26,13 +26,11 @@ class LogInUser extends Component{
 			url:'http://localhost:3000/api/userData/login',//url:'http://localhost:3000/api/Users/login',
 			data: user
 		}).then(response => {
-			//console.log(response.data);	//returns the object containing access token
-		//	console.log(user);
 			sessionStorage.setItem("accessToken",response.data.id);
 			sessionStorage.setItem("userId",response.data.userId);
 			sessionStorage.setItem("isLoggedIn",JSON.stringify(true));
-			console.log("Token:"+sessionStorage.getItem("accessToken"));
-			this.props.history.push('/users');
+			//console.log("Token:"+sessionStorage.getItem("accessToken"));
+			//this.props.history.push('/users');push the page you want to display
 		}).catch(err => {
 			if(err.response)
 				console.log(err.response.data.error.message + "Error at login verification");

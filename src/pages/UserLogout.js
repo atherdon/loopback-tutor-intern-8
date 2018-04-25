@@ -20,13 +20,15 @@ class LogOutUser extends Component{
 			sessionStorage.setItem("isLoggedIn", JSON.stringify(false));
 			console.log(sessionStorage.getItem("accessToken"));
 			this.props.history.push('/');
-		}).catch(err => console.log(err.response.data.error.message + "Error at log out user")); 
-		// this is the object to get the error msg
+		}).catch(err => {
+			if(err.response)
+				console.log(err.response.data.error.message + "Error in getting bookings")
+			else
+				console.log(err + ", Error at log out user")
+		}); 
 	}
 
 	render() {
-
-
 		return (
 			<div>
 				<h1>you have been logged out</h1>
