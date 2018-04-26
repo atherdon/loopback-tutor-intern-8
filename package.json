@@ -13,9 +13,9 @@
     "react-scripts": "1.1.1"
   },
   "scripts": {
-    "start": "set PORT=3001 && react-scripts start",
-    "build": "npm install preact-cli && preact build",
-    "build-windows": "react-scripts build && xcopy \"build/*\" \"../client/\" /Y /S /I /R",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build-windows": "npm install preact-cli && preact build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
