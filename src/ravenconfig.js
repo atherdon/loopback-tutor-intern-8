@@ -8,7 +8,7 @@ export const sentry_url = `https://${sentry_key}@sentry.io/${sentry_app}`;
 
 export function logException(ex, context) {
 	Raven.captureException(ex, { extra: context });
-	window && window.console && console.error && console.error(ex);
+	console.error && console.error(ex);
 }
 
 /*
