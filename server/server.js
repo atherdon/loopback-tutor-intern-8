@@ -6,6 +6,10 @@ var app = module.exports = loopback();
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
+//install raven
+var Raven = require('raven-js');
+Raven.config('https://77aa2ee9a7ce484497f56278982a0809@sentry.io/305339').install();
+
 // Passport configurators..
 var loopbackPassport = require('loopback-component-passport');
 var PassportConfigurator = loopbackPassport.PassportConfigurator;
@@ -24,6 +28,7 @@ var config = {};
 try {
   config = require('../providers.json');
 } catch (err) {
+  Raven.captureException(err);
   console.trace(err);
   process.exit(1); // fatal
 }
