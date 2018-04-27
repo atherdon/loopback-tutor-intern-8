@@ -12,11 +12,33 @@ class UsersInfo extends Component{
 		}
 	}
 
-	changePassword() {
-
-	}
 	componentDidMount(){
 		this.getUsersData();
+	}
+
+	deleteAccount (e){
+		e.preventDefault();
+		let del = window.confirm("Do you really want to delete your account? This is an irreversible process and"+
+		" you wont be able to access your data again");
+		if(del === true){
+			console.log("You clicked yes DELETE")
+			let userId = sessionStorage.getItem("userId");
+			let accessToken = sessionStorage.getItem("accessToken");
+			axios.request({
+				method: 'delete',
+				url:`http://localhost:3000/api/userData/${userId}?access_token=${accessToken}`
+			}).then(response => {
+				console.log(response)
+				sessionStorage.removeItem("accessToken");
+				sessionStorage.removeItem("userId");
+				sessionStorage.setItem("isLoggedIn", JSON.stringify(false));
+				this.props.history.push('logout')
+			}).catch(err => {
+				console.log(err)
+			})
+		}
+		else
+			console.log("You clicked no")
 	}
 
 	edit() {
@@ -87,6 +109,8 @@ class UsersInfo extends Component{
 				<br />
 				<button onClick={this.edit.bind(this)}>Edit profile </ button>
 				<a href="/reset">Change password </ a>
+				<br />
+				<button onClick={this.deleteAccount.bind(this)}>Delete account</button>
 			</div>
 			);
 	}
@@ -122,7 +146,7 @@ class UsersInfo extends Component{
 		}
 		else{
 			console.log("you need to login first")
-		///	console.log(sessionStorage.getItem("isLoggedIn"));
+		//	console.log(sessionStorage.getItem("isLoggedIn"));
 			return <Redirect to="/" />
 		}
 	}

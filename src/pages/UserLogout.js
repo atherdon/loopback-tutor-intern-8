@@ -22,7 +22,7 @@ class LogOutUser extends Component{
 			this.props.history.push('/');
 		}).catch(err => {
 			if(err.response)
-				console.log(err.response.data.error.message + "Error in getting bookings")
+				console.log(err.response.data.error.message + "Error in logging out user")
 			else
 				console.log(err + ", Error at log out user")
 		}); 

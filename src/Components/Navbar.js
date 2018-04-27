@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 class Navbar extends Component{
 	render() {
 		let check = JSON.parse(sessionStorage.getItem("isLoggedIn"));
-		
-
 			if(check === true){
 				return (
 					<div className="nav">
