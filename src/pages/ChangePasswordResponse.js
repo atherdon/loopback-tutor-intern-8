@@ -5,6 +5,7 @@ class ChangePasswordResponse extends Component{
 		return (
 		<div>
         	<h1>Password reset successfully</h1>
+        	<h3>You can use your new password to login next time</h3>
 		</div>
 		)
 	}
