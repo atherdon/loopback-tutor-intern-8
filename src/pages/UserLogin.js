@@ -30,7 +30,7 @@ class LogInUser extends Component{
 			sessionStorage.setItem("userId",response.data.userId);
 			sessionStorage.setItem("isLoggedIn",JSON.stringify(true));
 			//console.log("Token:"+sessionStorage.getItem("accessToken"));
-			//this.props.history.push('/users');push the page you want to display
+			this.props.history.push('/users');//push the page you want to display
 		}).catch(err => {
 			if(err.response)
 				console.log(err.response.data.error.message + "Error at login verification");
@@ -62,7 +62,7 @@ class LogInUser extends Component{
 							<input type="submit" value="Login" />
 							<a href="/adduser" >New User?</a>
 							<br />
-							<a href="/reset" >Forgot password? </a>
+							<a href="/forgot" >Forgot password? </a>
 						</form>
 						<br />
 						<br />

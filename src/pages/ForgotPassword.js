@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import  { Redirect } from 'react-router-dom';
 
-class ResetPassword extends Component{
+class ForgotPassword extends Component{
 
 	reset (){
 		console.log("entered email is: "+this.refs.email.value)
@@ -13,7 +13,7 @@ class ResetPassword extends Component{
 		}).then(response => {
 		//	console.log(response.data);
 		//	console.log("response received for email is: ")
-
+			this.props.history.push('/resetresponse');
 		}).catch(err => {
 			if(err.response)
 				console.log(err.response.data.error.message + "Error at password reset");
@@ -24,6 +24,8 @@ class ResetPassword extends Component{
 	}
 //onSubmit={this.reset.bind(this)} use this to call reset or send a direct call to backend
 	render() {
+		let check = JSON.parse(sessionStorage.getItem("isLoggedIn"));
+		if(check === false){
 			return (
 				<div>
 					<h4> Please enter your registered email</h4>
@@ -33,9 +35,14 @@ class ResetPassword extends Component{
 					</form>
 				</div>
 			);
-
+		}
+		else{
+			console.log("you need to login first");
+		//	console.log(sessionStorage.getItem("isLoggedIn"));
+			return <Redirect to="/" />
+		}
 	}
 
 }
 
-export default ResetPassword;
+export default ForgotPassword;

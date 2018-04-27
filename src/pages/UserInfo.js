@@ -12,6 +12,9 @@ class UsersInfo extends Component{
 		}
 	}
 
+	changePassword() {
+
+	}
 	componentDidMount(){
 		this.getUsersData();
 	}
@@ -83,6 +86,7 @@ class UsersInfo extends Component{
 				username: {this.state.userdata.username}
 				<br />
 				<button onClick={this.edit.bind(this)}>Edit profile </ button>
+				<a href="/reset">Change password </ a>
 			</div>
 			);
 	}
@@ -117,8 +121,8 @@ class UsersInfo extends Component{
 				return this.renderNormal();
 		}
 		else{
-			console.log("you need to login first");
-		//	console.log(sessionStorage.getItem("isLoggedIn"));
+			console.log("you need to login first")
+		///	console.log(sessionStorage.getItem("isLoggedIn"));
 			return <Redirect to="/" />
 		}
 	}
