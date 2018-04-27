@@ -4,7 +4,7 @@ import  { Redirect } from 'react-router-dom';
 
 class ForgotPassword extends Component{
 
-	reset (){
+	reset (e){
 		console.log("entered email is: "+this.refs.email.value)
 		axios.request({
 			method: 'post',
@@ -20,16 +20,17 @@ class ForgotPassword extends Component{
 			else
 				console.log(err)
 		});
-
+		e.preventDefault();
 	}
 //onSubmit={this.reset.bind(this)} use this to call reset or send a direct call to backend
+//method="post" action="http://localhost:3000/request-password-reset"
 	render() {
 		let check = JSON.parse(sessionStorage.getItem("isLoggedIn"));
 		if(check === false){
 			return (
 				<div>
 					<h4> Please enter your registered email</h4>
-					<form method="post" action="http://localhost:3000/request-password-reset" >
+					<form onSubmit={this.reset.bind(this)} >
 						<input type="email" name="email" ref="email" id="email" />
 						<input type="submit" value="Reset Password" />
 					</form>
