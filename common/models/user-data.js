@@ -66,7 +66,7 @@ module.exports = function(Userdata) {
   //   });
   // });
 
-  // Method to render
+  // Method to render when email is sent
   Userdata.afterRemote('prototype.verify', function(context, user, next) {
     context.res.render('response', {
       title: 'A Link to reverify your identity has been sent '+
@@ -77,6 +77,31 @@ module.exports = function(Userdata) {
       redirectToLinkText: 'Log in'
     });
   });
+//invite someone via email
+  Userdata.invite = function (email, user) {
+  //  console.log(user)
+    var url = 'http://' + config.host + ':' + config.port + '/';
+    var html = user.firstName + ' ' + user.lastName + ' invite you to ' +'<a href="' + url + '">url</a> to check us out';
+    Userdata.app.models.Email.send({
+      to: email,
+      from: senderAddress,
+      subject: 'Invitation',
+      html: html
+    }, function(err) {
+      if (err) return console.log('> error sending invite email');
+      console.log('> sending invite email to:', email);
+    });
+  };
+
+  Userdata.remoteMethod('invite', 
+    {
+      http: {path: '/invite', verb: 'post'},
+      accepts: [
+        {arg:'email', type: 'string'},
+        {arg: 'user', type: 'object'}
+      ]
+    }
+  );
 
   //send password reset link when requested
   Userdata.on('resetPasswordRequest', function(info) {
@@ -96,7 +121,7 @@ module.exports = function(Userdata) {
     });
   });
 
-  //render UI page after password change
+  //render UI page after password change not required if react implementation works
   Userdata.afterRemote('changePassword', function(context, user, next) {
     context.res.render('response', {
       title: 'Password changed successfully',
