@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router';
+import ChangePassword from '../pages/ChangePassword';
+import ChangePasswordResponse from '../pages/ChangePasswordResponse';
+import ForgotPassword from '../pages/ForgotPassword';
 import NewUser from '../pages/NewUser';
+import p404 from '../pages/Page404';
+import ResetPasswordResponse from '../pages/ResetPasswordResponse';
 import UserInfo from '../pages/UserInfo';
 import UserLogin from '../pages/UserLogin';
 import UserLogout from '../pages/UserLogout';
-import ForgotPassword from '../pages/ForgotPassword';
-import ChangePassword from '../pages/ChangePassword';
-import ResetPasswordResponse from '../pages/ResetPasswordResponse';
-import ChangePasswordResponse from '../pages/ChangePasswordResponse';
 import Verified from '../pages/Verified';
 import Verify from '../pages/Verify';
-import p404 from '../pages/Page404';
-
+import InviteForm from '../pages/InviteForm';
 
 class Main extends Component {
 	render() {
@@ -29,6 +29,7 @@ class Main extends Component {
 					<Route path="/changeresponse" component={ChangePasswordResponse} />
 					<Route path="/verified" component={Verified} />
 					<Route path="/verify" component={Verify} />
+					<Route path="/invite" component={InviteForm} />
 					<Route exact path="*" component={p404} />
 				</Switch>
 				</main>
