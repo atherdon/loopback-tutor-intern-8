@@ -12,6 +12,8 @@ import UserLogout from '../pages/UserLogout';
 import Verified from '../pages/Verified';
 import Verify from '../pages/Verify';
 import InviteForm from '../pages/InviteForm';
+import acc from '../pages/Authacc';
+
 
 class Main extends Component {
 	render() {
@@ -30,6 +32,7 @@ class Main extends Component {
 					<Route path="/verified" component={Verified} />
 					<Route path="/verify" component={Verify} />
 					<Route path="/invite" component={InviteForm} />
+					<Route path="/auth/account" component={acc} />
 					<Route exact path="*" component={p404} />
 				</Switch>
 				</main>

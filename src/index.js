@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import { unregister } from './registerServiceWorker';
-//import registerServiceWorker from './registerServiceWorker';
+//import { unregister } from './registerServiceWorker';
+import registerServiceWorker from './registerServiceWorker';
 // import Raven from 'raven-js';
 // import { sentry_url } from './ravenconfig';
 
@@ -15,6 +15,6 @@ ReactDOM.render(
 		<App />
 	</BrowserRouter>
 , document.getElementById('root'));
-unregister();
-///registerServiceWorker();
+registerServiceWorker();
+///unregister();
 

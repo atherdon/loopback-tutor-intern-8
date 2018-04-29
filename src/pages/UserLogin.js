@@ -39,7 +39,7 @@ class LogInUser extends Component{
 		});
 	}
 	getGoogleLogin() {
-		axios.get('/auth/google')
+		axios.get('https://loopback-react-account.herokuapp/auth/google')
 		.then(response => console.log(response.data))
 		.catch(err => console.log(err))
 	}
@@ -67,7 +67,7 @@ class LogInUser extends Component{
 						<br />
 						<br />
 						<button onClick={this.getGoogleLogin.bind(this)}>Login with google plus</button>
-						<a href="https://groceristar.netlify.com/auth/google">Signin with google</a>
+						<a href="https://loopback-react-account.herokuapp.com/auth/google">Signin with google</a>
 					</div>
 				</div>
 			);
@@ -78,6 +78,6 @@ class LogInUser extends Component{
 		}
 	}
 }
-//
-//
+//http://localhost:3001/auth/google
+///auth/google
 export default LogInUser;
