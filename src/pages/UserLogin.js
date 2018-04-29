@@ -39,7 +39,7 @@ class LogInUser extends Component{
 		});
 	}
 	getGoogleLogin() {
-		axios.get('http://localhost:3000/auth/google')
+		axios.get('/auth/google')
 		.then(response => console.log(response.data))
 		.catch(err => console.log(err))
 	}
@@ -67,7 +67,7 @@ class LogInUser extends Component{
 						<br />
 						<br />
 						<button onClick={this.getGoogleLogin.bind(this)}>Login with google plus</button>
-						<a href="http://localhost:3000/auth/google">Signin with google</a>
+						<a href="/auth/google">Signin with google</a>
 					</div>
 				</div>
 			);
