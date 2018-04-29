@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000/",
+  "proxy": "https://groceristar.netlify.com/",
   "dependencies": {
     "axios": "^0.18.0",
     "raven-js": "^3.24.2",

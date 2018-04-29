@@ -67,7 +67,7 @@ class LogInUser extends Component{
 						<br />
 						<br />
 						<button onClick={this.getGoogleLogin.bind(this)}>Login with google plus</button>
-						<a href="/auth/google">Signin with google</a>
+						<a href="https://groceristar.netlify.com/auth/google">Signin with google</a>
 					</div>
 				</div>
 			);
