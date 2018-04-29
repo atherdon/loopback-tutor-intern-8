@@ -26,7 +26,7 @@ class ForgotPassword extends Component{
 //method="post" action="http://localhost:3000/request-password-reset"
 	render() {
 		let check = JSON.parse(sessionStorage.getItem("isLoggedIn"));
-		if(check === false){
+		if(check !== true){
 			return (
 				<div>
 					<h4> Please enter your registered email</h4>
