@@ -12,7 +12,7 @@ import UserLogout from '../pages/UserLogout';
 import Verified from '../pages/Verified';
 import Verify from '../pages/Verify';
 import InviteForm from '../pages/InviteForm';
-//	<Route exact path="*" component={p404} />
+
 class Main extends Component {
 	render() {
 		return (
@@ -30,7 +30,7 @@ class Main extends Component {
 					<Route path="/verified" component={Verified} />
 					<Route path="/verify" component={Verify} />
 					<Route path="/invite" component={InviteForm} />
-				
+					<Route exact path="*" component={p404} />
 				</Switch>
 				</main>
 			</div>
