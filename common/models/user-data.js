@@ -5,8 +5,8 @@ var config = require('../../server/config.json');
 var path = require('path');
 var senderAddress = "arthur.tkachenko.netweight@gmail.com";
 
-var host = "127.0.0.1" || config.host;
-var port = "3001" || config.port;//adjust in final build
+var host = config.host;
+var port = config.port;//adjust in final build
 //var senderEmailPassword = "biBcf1K8r4Yn";
 
 module.exports = function(Userdata) {

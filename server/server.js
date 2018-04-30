@@ -94,11 +94,11 @@ app.get('/', function(req, res, next) {
 });
 
 app.get('/auth/account', ensureLoggedIn('/'), function(req, res, next) {
-  res.redirect('http://localhost:3001/auth/account');
-  // res.render('pages/loginProfiles', {
-  //   user: req.user,
-  //   url: req.url,
-  // });
+  //res.redirect('/auth/account');
+   res.render('pages/loginProfiles', {
+     user: req.user,
+     url: req.url,
+   });
 });
 
 // app.get('/local', function(req, res, next) {
