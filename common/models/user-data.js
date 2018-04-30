@@ -5,8 +5,10 @@ var config = require('../../server/config.json');
 var path = require('path');
 var senderAddress = "arthur.tkachenko.netweight@gmail.com";
 
-var host = config.host;
-var port = config.port;//adjust in final build
+//adjust in final build
+var host = process.env.HOST || config.host;
+var port = process.env.PORT || config.port;
+var reacturl = 'https://groceristar.netlify.com'
 //var senderEmailPassword = "biBcf1K8r4Yn";
 
 module.exports = function(Userdata) {
@@ -19,7 +21,7 @@ module.exports = function(Userdata) {
       subject: 'Thanks for registering.',
       text: "please verify the link",
       template: path.resolve(__dirname, '../../server/views/verify.ejs'),
-      redirect: 'http://' + host + ':' + port + '/verified',//Take to the successfully verified page remove front part for final build
+      redirect: reacturl + '/verified'//'http://' + host + ':' + port + '/verified',//Take to the successfully verified page remove front part for final build
       user: user
     };
 
@@ -80,7 +82,7 @@ module.exports = function(Userdata) {
 //invite someone via email
   Userdata.invite = function (email, user) {
   //  console.log(user)
-    var url = 'http://' + config.host + ':' + config.port + '/';
+    var url = 'http://' + host + ':' + port + '/';
     var html = user.firstName + ' ' + user.lastName + ' invite you to ' +'<a href="' + url + '">url</a> to check us out';
     Userdata.app.models.Email.send({
       to: email,
@@ -105,7 +107,7 @@ module.exports = function(Userdata) {
 
   //send password reset link when requested
   Userdata.on('resetPasswordRequest', function(info) {
-    var url = 'http://' + config.host + ':' + config.port + '/reset-password';
+    var url = 'https://' + host + ':' + port + '/reset-password';
     //var url = 'http://' + config.host + ':' + config.port + '/api/userData/reset-password';
     var html = 'Click <a href="' + url + '?access_token=' +
         info.accessToken.id + '">here</a> to reset your password';
