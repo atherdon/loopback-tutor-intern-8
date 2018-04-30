@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-var config = require('../utils/config');
+var config = require('../utils/config.json');
 
 class LogOutUser extends Component{
 

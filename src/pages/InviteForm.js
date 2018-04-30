@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import  { Redirect } from 'react-router-dom';
-var config = require('../utils/config');
+var config = require('../utils/config.json');
 
 class InviteForm extends Component{
 
