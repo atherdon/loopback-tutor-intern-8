@@ -8,9 +8,9 @@ class LogOutUser extends Component{
 		let at = sessionStorage.getItem("accessToken");
 		axios.request({
 			method: 'post',
-			url: config.url + `/api/userData/logout?access_token=${at}` //url:'http://localhost:3000/api/Users/login',
+			url: config.url + `/api/userData/logout?access_token=${at}`
 		}).then(response => {
-			console.log(response.data);	//returns the object containing access token
+			console.log(response.data);
 			sessionStorage.removeItem("accessToken");
 			sessionStorage.removeItem("userId");
 			sessionStorage.setItem("isLoggedIn", JSON.stringify(false));

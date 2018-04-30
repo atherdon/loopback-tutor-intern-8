@@ -38,7 +38,7 @@ class ForgotPassword extends Component{
 			);
 		}
 		else{
-			console.log("you need to login first");
+			console.log("you cant be logged in to use this functionality");
 		//	console.log(sessionStorage.getItem("isLoggedIn"));
 			return <Redirect to="/" />
 		}

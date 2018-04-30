@@ -66,7 +66,6 @@ class LogInUser extends Component{
 						</form>
 						<br />
 						<br />
-						<button onClick={this.getGoogleLogin.bind(this)}>Login with google plus</button>
 						<a href="https://loopback-react-account.herokuapp.com/auth/google">Signin with google</a>
 					</div>
 				</div>
@@ -74,7 +73,7 @@ class LogInUser extends Component{
 		}
 		else{
 			console.log(sessionStorage.getItem("isLoggedIn"));
-			return <Redirect to="/view" />
+			return <Redirect to="/users" />
 		}
 	}
 }
