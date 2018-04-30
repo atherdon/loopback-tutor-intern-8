@@ -8,7 +8,7 @@ class ForgotPassword extends Component{
 		console.log("entered email is: "+this.refs.email.value)
 		axios.request({
 			method: 'post',
-			url:'http://localhost:3000/api/userData/reset',//modify the reset method in userdata.js backend to send an email with
+			url:config.url + '/api/userData/reset',//modify the reset method in userdata.js backend to send an email with
 			data: {email: this.refs.email.value }//          reset link or call a different method to handle this
 		}).then(response => {
 		//	console.log(response.data);

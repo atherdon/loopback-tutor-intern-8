@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+var config = require('../utils/config');
 
 class LogOutUser extends Component{
 
@@ -11,7 +12,7 @@ class LogOutUser extends Component{
 		}
 		axios.request({
 			method: 'post',
-			url:`http://localhost:3000/api/userData/logout?access_token=${at}`, //url:'http://localhost:3000/api/Users/login',
+			url: config.url + `/api/userData/logout?access_token=${at}`, //url:'http://localhost:3000/api/Users/login',
 			data: user
 		}).then(response => {
 			console.log(response.data);	//returns the object containing access token

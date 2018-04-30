@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import  { Redirect } from 'react-router-dom';
+var config = require('../utils/config');
 
 class ChangePassword extends Component{
 
@@ -18,7 +19,7 @@ class ChangePassword extends Component{
 		console.log("entered pass is: "+this.refs.password.value + ", entered cpass is: "+this.refs.cpassword.value)
 		axios.request({
 			method: 'post',
-			url:`http://localhost:3000/api/userData/reset-password?access_token=${accessToken}`,//modify the reset method in  
+			url: config.url + `/api/userData/reset-password?access_token=${accessToken}`,//modify the reset method in  
 			data: {newPassword: this.refs.password.value }//         userdata.js backend call a different method to handle this
 		}).then(response => {
 			console.log(response.data);

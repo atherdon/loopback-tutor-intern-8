@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import  { Redirect } from 'react-router-dom';
+var config = require('../utils/config');
 
 class InviteForm extends Component{
 
@@ -10,7 +11,7 @@ class InviteForm extends Component{
 		let at = sessionStorage.getItem("accessToken");
 		axios.request({
 			method: 'post',
-			url:`http://localhost:3000/api/userData/invite?access_token=${at}`,//modify the reset method in userdata.js backend to send an email with
+			url: config.url + `/api/userData/invite?access_token=${at}`,//modify the reset method in userdata.js backend to send an email with
 			data: {
 				email: this.refs.email.value,
 				user: {								//need to get the user's name here somehow
