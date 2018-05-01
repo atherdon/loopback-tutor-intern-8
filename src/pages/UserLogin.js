@@ -32,10 +32,12 @@ class LogInUser extends Component{
 			//console.log("Token:"+sessionStorage.getItem("accessToken"));
 			this.props.history.push('/users');//push the page you want to display
 		}).catch(err => {
-			if(err.response)
-				console.log(err.response.data.error.message + "Error at login verification");
+			if(err.response){
+				alert(err.response.data.error.message)
+				console.log(err.response.data.error.message)
+			}
 			else
-				console.log(err)
+				console.log(err + "Error at login verification")
 		});
 	}
 	getGoogleLogin() {

@@ -16,7 +16,7 @@ ReactDOM.render(
 		<App />
 	</BrowserRouter>
 , rootElement)
-
+/*
 if (module.hot) {
   module.hot.accept('./App', () => {
     const NextApp = require('./App').default
@@ -25,7 +25,7 @@ if (module.hot) {
       rootElement
     )
   })
-}
+}*/
 registerServiceWorker();
 ///unregister();
 
