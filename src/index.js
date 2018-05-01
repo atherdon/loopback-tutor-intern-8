@@ -9,12 +9,23 @@ import registerServiceWorker from './registerServiceWorker';
 
 //Raven.config(sentry_url).install();
 
+const rootElement = document.getElementById('root')
 
 ReactDOM.render(
 	<BrowserRouter>
 		<App />
 	</BrowserRouter>
-, document.getElementById('root'));
+, rootElement)
+
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    const NextApp = require('./App').default
+    ReactDOM.render(
+      <NextApp />,
+      rootElement
+    )
+  })
+}
 registerServiceWorker();
 ///unregister();
 

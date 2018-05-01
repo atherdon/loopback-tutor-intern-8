@@ -37,9 +37,9 @@ class NewUser extends Component{
 		}).catch(err => {
 			if(err.response){
 				if(err.response.data.error.details.messages.email)
-					alert(err.response.data.error.details.messages.email)
+					alert("email" + err.response.data.error.details.messages.email)
 				else if(err.response.data.error.details.messages.username)
-					alert(err.response.data.error.details.messages.username)
+					alert("username" + err.response.data.error.details.messages.username)
 				console.log(err.response.data.error.message + " Error at signup");
 			}
 			else
@@ -54,7 +54,7 @@ class NewUser extends Component{
 				<div>
 					<form className="entryForm" onSubmit={this.onSubmit.bind(this)}>
 						<label>Email</ label>
-						<input type="text" name="email" ref="email" required />
+						<input type="email" name="email" ref="email" required />
 						<br />
 						<label>First Name</ label>
 						<input type="text" name="firstName" ref="fname" required />
