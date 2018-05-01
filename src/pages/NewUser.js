@@ -35,8 +35,13 @@ class NewUser extends Component{
 		//	console.log("This is response-->>"+respons.data);//can get userId from this response object
 			this.props.history.push('/verify');//tell user to verify email first
 		}).catch(err => {
-			if(err.response)
+			if(err.response){
+				if(err.response.data.error.details.messages.email)
+					alert(err.response.data.error.details.messages.email)
+				else if(err.response.data.error.details.messages.username)
+					alert(err.response.data.error.details.messages.username)
 				console.log(err.response.data.error.message + " Error at signup");
+			}
 			else
 				console.log(err)
 		});	
@@ -49,22 +54,22 @@ class NewUser extends Component{
 				<div>
 					<form className="entryForm" onSubmit={this.onSubmit.bind(this)}>
 						<label>Email</ label>
-						<input type="text" name="email" ref="email" />
+						<input type="text" name="email" ref="email" required />
 						<br />
 						<label>First Name</ label>
-						<input type="text" name="firstName" ref="fname" />
+						<input type="text" name="firstName" ref="fname" required />
 						<br />
 						<label>Last Name</ label>
-						<input type="text" name="lastName" ref="lname" />
+						<input type="text" name="lastName" ref="lname" required />
 						<br />
 						<label>UserName</ label>
-						<input type="text" name="username" ref="username" />
+						<input type="text" name="username" ref="username" required />
 						<br />
 						<label>Password</ label>
-						<input type="password" name="password" ref="password" />
+						<input type="password" name="password" ref="password" required />
 						<br />
 						<label>Confirm Password</ label>
-						<input type="password" name="cpassword" id="cpassword" ref="cpassword" />
+						<input type="password" name="cpassword" id="cpassword" ref="cpassword" required />
 						<input type="submit" value="Save" />
 					</form>
 				</div>

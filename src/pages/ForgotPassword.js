@@ -32,7 +32,7 @@ class ForgotPassword extends Component{
 				<div>
 					<h4> Please enter your registered email</h4>
 					<form onSubmit={this.reset.bind(this)} >
-						<input type="email" name="email" ref="email" id="email" />
+						<input type="email" name="email" ref="email" id="email"required />
 						<input type="submit" value="Reset Password" />
 					</form>
 				</div>

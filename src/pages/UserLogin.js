@@ -54,10 +54,10 @@ class LogInUser extends Component{
 						<form className="entryForm" method="post" onSubmit={this.onSubmit.bind(this)}>
 							<br />
 							<label>Username</ label>
-							<input type="text" name="username" ref="username" />
+							<input type="text" name="username" ref="username" required />
 							<br />
 							<label>Password</ label>
-							<input type="password" name="password" ref="password" />
+							<input type="password" name="password" ref="password" required />
 							<br />
 							<input type="submit" value="Login" />
 							<a href="/adduser" >New User?</a>
