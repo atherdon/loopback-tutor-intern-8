@@ -6,9 +6,9 @@ var path = require('path');
 var senderAddress = "arthur.tkachenko.netweight@gmail.com";
 
 //adjust in final build
-var host = process.env.HOST || "localhost";
+var host = process.env.HOST || "loopback-react-account.herokuapp.com";
 var port = process.env.PORT || config.port;
-var reacturl = 'groceristar.netlify.com';
+var reacturl = 'https://groceristar.netlify.com';
 //var senderEmailPassword = "biBcf1K8r4Yn";
 
 module.exports = function(Userdata) {
