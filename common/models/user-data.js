@@ -6,7 +6,7 @@ var path = require('path');
 var senderAddress = "arthur.tkachenko.netweight@gmail.com";
 
 //adjust in final build
-var host = process.env.HOST || "localhost" || config.host;
+var host = process.env.HOST || "localhost";
 var port = process.env.PORT || config.port;
 var reacturl = 'groceristar.netlify.com';
 //var senderEmailPassword = "biBcf1K8r4Yn";
@@ -21,7 +21,7 @@ module.exports = function(Userdata) {
       subject: 'Thanks for registering.',
       text: "please verify the link",
       template: path.resolve(__dirname, '../../server/views/verify.ejs'),
-      redirect: reacturl + '/verified'//'http://' + host + ':' + port + '/verified',//Take to the successfully verified page remove front part for final build
+      redirect: reacturl + '/verified',//'http://' + host + ':' + port + '/verified',//Take to the successfully verified page remove front part for final build
       user: user
     };
 
