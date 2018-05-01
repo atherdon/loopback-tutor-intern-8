@@ -13,6 +13,7 @@ class LogOutUser extends Component{
 			console.log(response.data);
 			sessionStorage.removeItem("accessToken");
 			sessionStorage.removeItem("userId");
+			sessionStorage.removeItem("email");
 			sessionStorage.setItem("isLoggedIn", JSON.stringify(false));
 			console.log(sessionStorage.getItem("accessToken"));
 			this.props.history.push('/');
