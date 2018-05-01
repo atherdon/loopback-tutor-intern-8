@@ -6,9 +6,9 @@ var path = require('path');
 var senderAddress = "arthur.tkachenko.netweight@gmail.com";
 
 //adjust in final build
-var host = process.env.HOST || config.host;
+var host = process.env.HOST || "localhost" || config.host;
 var port = process.env.PORT || config.port;
-var reacturl = 'https://groceristar.netlify.com'
+var reacturl = 'groceristar.netlify.com';
 //var senderEmailPassword = "biBcf1K8r4Yn";
 
 module.exports = function(Userdata) {
@@ -82,7 +82,7 @@ module.exports = function(Userdata) {
 //invite someone via email
   Userdata.invite = function (email, user) {
   //  console.log(user)
-    var url = 'http://' + host + ':' + port + '/';
+    var url = reacturl;//'http://' + host + ':' + port + '/';
     var html = user.firstName + ' ' + user.lastName + ' invite you to ' +'<a href="' + url + '">url</a> to check us out';
     Userdata.app.models.Email.send({
       to: email,
