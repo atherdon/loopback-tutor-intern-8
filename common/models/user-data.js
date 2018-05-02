@@ -6,7 +6,7 @@ var path = require('path');
 var senderAddress = "arthur.tkachenko.netweight@gmail.com";
 
 //adjust in final build
-var host = process.env.HOST || "loopback-react-account.herokuapp.com";
+var host = process.env.HOST || "localhost";
 var port = process.env.PORT || config.port;
 var reacturl = 'https://groceristar.netlify.com';
 //var senderEmailPassword = "biBcf1K8r4Yn";
@@ -104,6 +104,32 @@ module.exports = function(Userdata) {
       ]
     }
   );
+
+  //export user data
+  Userdata.csvexport = function(/*id,*/ res, callback) {
+    var csvdata = "sending this as data"//get the data from database
+    //model.find({where: {userId: req.user.userId}}, function(err, data) { /* set csvdata = data */ });
+    var datetime = new Date();
+    res.set('Expires', datetime.setDate(datetime.getDate() + 1 ));
+    res.set('Cache-Control', 'max-age=0, no-cache, must-revalidate, proxy-revalidate');
+    res.set('Last-Modified', datetime );
+    res.set('Content-Type','application/force-download');
+    res.set('Content-Type','application/octet-stream');
+    res.set('Content-Type','application/download');
+    res.set('Content-Disposition','attachment;filename=Data.csv');
+    res.set('Content-Transfer-Encoding','binary');
+    res.status(200).send(csvdata); //send CSV data here.
+  };
+
+  Userdata.remoteMethod('csvexport',
+  {
+    accepts: [
+    //  {arg: 'id', type: 'string', required: true },
+      {arg: 'res', type: 'object', 'http': {source: 'res'}}
+    ],
+    returns: {},
+    http: {path: '/csvexport', verb: 'get'}
+  });
 
   //send password reset link when requested
   Userdata.on('resetPasswordRequest', function(info) {
