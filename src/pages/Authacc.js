@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from 'react'
+import axios from 'axios'
+var config = require('../utils/config.json');
 
 class Authacc extends Component{
 	constructor() {
@@ -10,7 +11,7 @@ class Authacc extends Component{
 	}
 
 	componentDidMount(){
-		axios.get('http://localhost:3000/userstatus')
+		axios.get(config.url + '/userstatus')
 		.then(response => {
 			if(response !== null){
 			console.log("This came->" + JSON.stringify(response))
@@ -21,21 +22,21 @@ class Authacc extends Component{
 
 
 	renderNormal() {
-			return (
-				<div>
-				<h1>Google login</h1>
-				Name: {this.state.userdata}
-				<br />
-				<br />
-				<br />
-			</div>
-			);
+		return (
+			<div>
+			<h1>Google login</h1>
+			Name: {this.state.userdata}
+			<br />
+			<br />
+			<br />
+		</div>
+		);
 	}
 
 
 	render() {
 
-				return this.renderNormal();
+		return this.renderNormal();
 
 	}
 

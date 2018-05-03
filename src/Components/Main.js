@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router';
 import ChangePassword from '../pages/ChangePassword';
 import ChangePasswordResponse from '../pages/ChangePasswordResponse';
+import Home from '../pages/Home';
 import ForgotPassword from '../pages/ForgotPassword';
 import NewUser from '../pages/NewUser';
 import p404 from '../pages/Page404';
@@ -21,7 +22,8 @@ class Main extends Component {
 			<div>
 			<main>
 				<Switch>
-					<Route exact path="/" component={UserLogin} />
+					<Route exact path="/" component={Home} />
+					<Route path="/login" component={UserLogin} />
 					<Route path="/logout" component={UserLogout} />
 					<Route path="/adduser" component={NewUser} />
 					<Route path="/users" component={UserInfo} />
