@@ -7,7 +7,7 @@ class Navbar extends Component{
 				return (
 					<div className="nav">
 					<ul>
-						<li><a href="/users">My Profile</a></li>
+						<li><a href="/profile">My Profile</a></li>
 						<li><a href="/logout">logout</a></li>
 					</ul>
 					</div>

@@ -30,7 +30,7 @@ class LogInUser extends Component{
 			sessionStorage.setItem("userId",response.data.userId);
 			sessionStorage.setItem("isLoggedIn",JSON.stringify(true));
 			//console.log("Token:"+sessionStorage.getItem("accessToken"));
-			this.props.history.push('/users');//push the page you want to display
+			this.props.history.push('/profile');//push the page you want to display
 		}).catch(err => {
 			if(err.response){
 				alert(err.response.data.error.message)

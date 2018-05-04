@@ -26,7 +26,7 @@ class Main extends Component {
 					<Route path="/login" component={UserLogin} />
 					<Route path="/logout" component={UserLogout} />
 					<Route path="/adduser" component={NewUser} />
-					<Route path="/users" component={UserInfo} />
+					<Route path="/profile" component={UserInfo} />
 					<Route path="/forgot" component={ForgotPassword} />
 					<Route path="/reset" component={ChangePassword} />
 					<Route path="/resetresponse" component={ResetPasswordResponse} />
