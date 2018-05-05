@@ -6,6 +6,6 @@ module.exports = function(handle) {
 
 	handle.get('/userstatus', function(req, res, next){
 	//	res.json(req.user);
-		res.status(200).send({JSON.stringify(req.user)})
+		res.status(200).send({user:req.user})
 	});
 }
