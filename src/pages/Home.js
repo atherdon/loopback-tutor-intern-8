@@ -20,7 +20,7 @@ class Home extends Component {
 						<div className="caption">
 							<h3>Thumbnail label</h3>
 							<p>Description about product</p>
-							<p><button onClick={this.addToCart.bind(this)} className="btn btn-primary" role="button">Add to cart</button> <a href="#" className="btn btn-default" role="button">Button</a></p>
+							<p><button onClick={this.addToCart.bind(this)} className="btn btn-primary" role="button">Add to cart</button></p>
 							</div>
 						</div>
 					</div>

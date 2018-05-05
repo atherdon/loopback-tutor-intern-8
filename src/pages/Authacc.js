@@ -3,8 +3,8 @@ import axios from 'axios'
 var config = require('../utils/config.json');
 
 class Authacc extends Component{
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			userdata: {}
 		}
@@ -14,9 +14,10 @@ class Authacc extends Component{
 		axios.get(config.url + '/userstatus')
 		.then(response => {
 			if(response !== null){
-			console.log("This came->" + response)
-			this.setState({userdata: response.data})
-			console.log("state"+this.state.userdata)}
+				console.log("This came->" + response)
+				this.setState({userdata: response.data})
+				console.log("state"+this.state.userdata)
+			}
 		}).catch(err => console.log(err))
 	}
 
@@ -25,7 +26,7 @@ class Authacc extends Component{
 		return (
 			<div>
 			<h1>Google login</h1>
-			Name: {this.state.userdata}
+				Name: {this.state.userdata.provider}
 			<br />
 			<br />
 			<br />
@@ -39,6 +40,6 @@ class Authacc extends Component{
 		return this.renderNormal();
 
 	}
-
+//			Name: {this.state.userdata}
 }
 export default Authacc;
