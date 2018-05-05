@@ -14,9 +14,9 @@ class Authacc extends Component{
 		axios.get(config.url + '/userstatus')
 		.then(response => {
 			if(response !== null){
-				console.log("This came->" + JSON.stringify(response.data))
+				console.log("This came->" , JSON.stringify(response.data))
 				this.setState({userdata: response.data})
-				console.log("state"+this.state.userdata)
+				console.log("state", this.state.userdata)
 			}
 		}).catch(err => console.log(err))
 	}
