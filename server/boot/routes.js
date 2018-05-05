@@ -5,12 +5,30 @@ var urlTest = "http://127.0.0.1:3001";
 
 module.exports = function(app) {
 var User = app.models.userData;
-/*If works shift to react
-	app.get('/verified', function(req, res) {
-    	res.render('verified');
-	});
 
-*/
+  app.get('/cart', function(req, res, next) {
+    console.log(req.session);
+    res.status(200).send(String(req.session.cart));
+  });
+
+  app.get('/add-to-cart', function(req, res, next) {
+    console.log(req.session);
+    if(!req.session.cart){
+      let qty = 0;
+      req.session.cart = qty;
+      return res.status(200).send({qty:qty});
+    }
+    else{
+      let qty = req.session.cart;
+      qty++;
+      res.session.cart = qty;
+      console.log("yes"+qty);
+      res.status(200).send({qty:qty});  
+    }
+    
+    
+  });
+
   app.get('/request-password-reset', function(req, res, next) {
     res.render('resetpassword');
   });
