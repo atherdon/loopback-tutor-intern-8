@@ -3,7 +3,7 @@ import axios from 'axios';
 import  { Redirect } from 'react-router-dom';
 var config = require('../utils/config.json');
 
-class InviteForm extends Component{
+class InviteForm extends Component {
 
 	send (e){
 		e.preventDefault();

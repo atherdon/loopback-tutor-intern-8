@@ -3,7 +3,7 @@ import axios from 'axios';
 import  { Redirect } from 'react-router-dom';
 var config = require('../utils/config.json');
 
-class ChangePassword extends Component{
+class ChangePassword extends Component {
 
 	validate(e) {
 		if(this.refs.password.value === this.refs.cpassword.value){
@@ -19,7 +19,7 @@ class ChangePassword extends Component{
 		console.log("entered pass is: "+this.refs.password.value + ", entered cpass is: "+this.refs.cpassword.value)
 		axios.request({
 			method: 'post',
-			url: config.url + `/api/userData/reset-password?access_token=${accessToken}`,//modify the reset method in  
+			url: config.url + `/api/userData/reset-password?access_token=${accessToken}`,//modify the reset method in
 			data: {newPassword: this.refs.password.value }//         userdata.js backend call a different method to handle this
 		}).then(response => {
 			console.log(response.data);
@@ -33,9 +33,9 @@ class ChangePassword extends Component{
 
 	}
 //onSubmit={this.reset.bind(this)} use this to call reset or send a direct call to backend
-//method="post" action="http://localhost:3000/reset-password" 
+//method="post" action="http://localhost:3000/reset-password"
 	render() {
-			
+
 		let check = JSON.parse(sessionStorage.getItem("isLoggedIn"));
 		if(check === true){
 			return (
@@ -58,7 +58,7 @@ class ChangePassword extends Component{
 		//	console.log(sessionStorage.getItem("isLoggedIn"));
 			return <Redirect to="/" />
 		}
-			
+
 
 	}
 

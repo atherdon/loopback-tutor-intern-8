@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Verified extends Component{
+class Verified extends Component {
 	render() {
 		return (
 		<div>

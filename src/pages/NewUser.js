@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 var config = require('../utils/config.json');
 
-class NewUser extends Component{
+class NewUser extends Component {
 
 	onSubmit(e) {
 		//Take the form data
@@ -44,7 +44,7 @@ class NewUser extends Component{
 			}
 			else
 				console.log(err)
-		});	
+		});
 	}
 
 	render() {

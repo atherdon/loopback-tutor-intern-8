@@ -3,7 +3,7 @@ import axios from 'axios';
 import  { Redirect } from 'react-router-dom';
 var config = require('../utils/config.json');
 
-class UsersInfo extends Component{
+class UsersInfo extends Component {
 
 	constructor() {
 		super();
@@ -76,7 +76,7 @@ class UsersInfo extends Component{
 		axios.request({
 			method: 'patch',
 			url: updateurl,//url called to update the data
-			data: user			
+			data: user
 		}).then(response => {
 			console.log(user)
 			console.log("Success updating user data")
@@ -158,7 +158,7 @@ class UsersInfo extends Component{
 			<label>Last Name: </label>
 			<input type="text" value={this.state.userdata.lastName} ref="lname" onChange={this.handleChangeLastName.bind(this)} />
 			<br />
-			<label>Email:</label> 
+			<label>Email:</label>
 			<input type="text" value={this.state.userdata.email} ref="email" onChange={this.handleChangeEmail.bind(this)} />
 			<br />
 			username: {this.state.userdata.username}

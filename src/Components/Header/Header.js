@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-class Header extends Component{
+class Header extends Component {
 
 	isNotLoggedIn () {
 		return(
@@ -106,8 +106,9 @@ class Header extends Component{
 	}
 
 	render(){
-		let check = JSON.parse(sessionStorage.getItem("isLoggedIn"));
-			if(check === true){
+		let check = JSON.parse( sessionStorage.getItem("isLoggedIn") );
+		//@todo update to ternary operator
+			if( check === true ){
 				return this.isLoggedIn()
 			}
 			else{

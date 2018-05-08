@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class ChangePasswordResponse extends Component{
+class ChangePasswordResponse extends Component {
 	render() {
 		return (
 		<div>

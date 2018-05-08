@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class ResetPasswordResponse extends Component{
+class ResetPasswordResponse extends Component {
 	render() {
 		return (
 		<div>

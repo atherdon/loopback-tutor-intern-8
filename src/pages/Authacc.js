@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 var config = require('../utils/config.json');
 
-class Authacc extends Component{
+class Authacc extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {

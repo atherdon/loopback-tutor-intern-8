@@ -3,7 +3,7 @@ import axios from 'axios';
 import  { Redirect } from 'react-router-dom';
 var config = require('../utils/config.json');
 
-class ForgotPassword extends Component{
+class ForgotPassword extends Component {
 
 	reset (e){
 		console.log("entered email is: "+this.refs.email.value)

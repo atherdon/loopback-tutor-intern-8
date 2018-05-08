@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import loadCart from '../helpers/loadCart'
 import axios from 'axios'
 
-class Cart extends Component{
+class Cart extends Component {
 
 	constructor (props) {
 		super(props)

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 var config = require('../utils/config.json');
 
-class LogOutUser extends Component{
+class LogOutUser extends Component {
 
 	logOutUser(){
 		let at = sessionStorage.getItem("accessToken");
@@ -22,7 +22,7 @@ class LogOutUser extends Component{
 				console.log(err.response.data.error.message + "Error in logging out user")
 			else
 				console.log(err + ", Error at log out user")
-		}); 
+		});
 	}
 
 	render() {

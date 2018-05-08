@@ -3,7 +3,7 @@ import axios from 'axios';
 import  { Redirect } from 'react-router-dom';
 var config = require('../utils/config.json');
 
-class LogInUser extends Component{
+class LogInUser extends Component {
 
 
 	onSubmit(e) {
@@ -12,9 +12,9 @@ class LogInUser extends Component{
 			username: this.refs.username.value,
 		//	email: this.refs.email.value,
 			password: this.refs.password.value
-			
+
 		}
-		
+
 		this.submitUser(user);
 		e.preventDefault();
 
