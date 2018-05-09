@@ -36,7 +36,7 @@
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^2.0.0",
     "underscore": "^1.9.0",
-    "webpack": "^4.5.0",
+    "webpack": "^4.8.1",
     "webpack-cli": "^2.0.14"
   },
   "devDependencies": {
