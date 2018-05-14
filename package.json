@@ -32,7 +32,7 @@
     "nodemailer": "^4.6.4",
     "passport-google-oauth": "^1.0.0",
     "passport-google-oauth2": "^0.1.6",
-    "raven-js": "^3.24.2",
+    "raven-js": "^3.25.1",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^2.0.0",
     "underscore": "^1.9.0",
