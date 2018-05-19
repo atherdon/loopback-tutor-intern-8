@@ -22,7 +22,7 @@
     "express-flash": "0.0.2",
     "express-session": "^1.15.6",
     "forest-loopback": "^0.1.10",
-    "helmet": "^3.10.0",
+    "helmet": "^3.12.1",
     "jade": "^1.11.0",
     "loopback": "^3.19.0",
     "loopback-boot": "^2.6.5",
